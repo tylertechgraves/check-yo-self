@@ -1,0 +1,25 @@
+<div fxLayout="row" fxLayoutAlign="center">  
+  <div fxFlex="50">
+    <a mat-button routerLink="/"><mat-icon>home</mat-icon> {{'HOME' | translate}}</a>
+    <mat-list>
+      <h2 mat-subheader>Application Settings</h2>
+      <mat-list-item *ngFor="let item of getProperties(config)">
+        <span fxFlex="50">{{item.propertyName}}</span>
+        <span fxFlex="50">{{item.propertyValue}}</span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h2 mat-subheader>Application Insights</h2>
+      <mat-list-item *ngFor="let item of getProperties(config?.applicationInsights)">
+        <span fxFlex="50">{{item.propertyName}}</span>
+        <span fxFlex="50">{{item.propertyValue}}</span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <h2 mat-subheader>Configuration Server</h2>
+      <mat-list-item *ngFor="let item of getProperties(config?.configurationServer)">
+        <span fxFlex="50">{{item.propertyName}}</span>
+        <span fxFlex="50">{{item.propertyValue}}</span>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+    </mat-list>
+  </div>
+</div>
