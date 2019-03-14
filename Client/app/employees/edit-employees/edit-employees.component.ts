@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'appc-edit-employees',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./edit-employees.component.scss']
 })
 export class EditEmployeesComponent implements OnInit {
+  @Input() editFormGroup: FormGroup;
 
   constructor() { }
 

@@ -5,18 +5,18 @@
     <button mat-raised-button color="primary" accesskey="c" (click)="goToCheckCalculator()">Go to <u>C</u>heck Calculator</button>
   </div>
 
-  <form>
+  <form [formGroup]="employeesForm">
     <mat-tab-group>
       <mat-tab label="List All Employees">
         <appc-list-employees></appc-list-employees>
       </mat-tab>
 
       <mat-tab label="Find and Edit Employees">
-        <appc-edit-employees></appc-edit-employees>
+        <appc-edit-employees [editFormGroup]="employeesForm.controls['editParameters']"></appc-edit-employees>
       </mat-tab>
     
       <mat-tab label="Add Employee">
-        <appc-add-employees></appc-add-employees>
+        <appc-add-employees [addFormGroup]="employeesForm.controls['addParameters']"></appc-add-employees>
       </mat-tab>
     </mat-tab-group>
   </form>

@@ -1,8 +1,20 @@
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Employee } from '../core/models/employee';
+import { HttpClient } from '@angular/common/http';
+import { ConfigService } from '../core/services/config.service';
 
 @Injectable()
 export class EmployeesService {
 
-  constructor() { }
+  constructor(
+    private httpClient: HttpClient
+  ) { }
+
+  public getEmployees(): Observable<Employee[]> {
+    const listEmployeesEndpoint: string = ConfigService.config.checkYoSelf.listEmployeesEndpoint;
+
+    return this.httpClient.get<Employee[]>(listEmployeesEndpoint);
+  }
 
 }

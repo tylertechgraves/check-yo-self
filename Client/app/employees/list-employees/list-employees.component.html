@@ -1,3 +1,13 @@
-<p>
-  list-employees works!
-</p>
+<div fxLayout="column" fxLayoutAlign="center center" style="text-align: center; padding-top:10px; padding-bottom:10px;">
+  <div>
+    <button mat-raised-button color="primary" accesskey="e" (click)="getEmployees()">Get <u>E</u>mployees</button>
+  </div>
+</div>
+
+<div>
+  <mat-list>
+    <mat-list-item *ngFor="let employee of employeesList" fxLayout="column" fxLayoutAlign="center center">
+      {{ employee.lastName}}
+    </mat-list-item>
+  </mat-list>
+</div>
