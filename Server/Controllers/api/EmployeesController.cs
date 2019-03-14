@@ -35,18 +35,11 @@ namespace paycheck_calculator_web.Server.Controllers.api
     {
       try
       {
-        if (!ModelState.IsValid)
-        {
-          return BadRequest();
-        }
-        else
-        {
-          var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
+        var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
 
-          var employees = await _httpClient.GetStringAsync(url);
+        var employees = await _httpClient.GetStringAsync(url);
 
-          return Ok(employees);
-        }
+        return Ok(employees);
       }
       catch (Exception e)
       {
