@@ -9,5 +9,6 @@ namespace paycheck_calculator_web.Server.Entities.Config
     public bool EmployeesButtonVisible { get; set; }
     public string ListEmployeesEndpoint { get; set; }
     public string EmployeesApiBaseUrl { get; set; }
+    public string QueryForEmployeesByFullNameEndpoint { get; set; }
   }
 }

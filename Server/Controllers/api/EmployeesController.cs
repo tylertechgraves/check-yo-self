@@ -47,5 +47,59 @@ namespace paycheck_calculator_web.Server.Controllers.api
         return StatusCode(StatusCodes.Status500InternalServerError);
       }
     }
+
+    [HttpGet("{employeeId}")]
+    [ProducesResponseType(typeof(Employee), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> GetById(int employeeId)
+    {
+      if (!ModelState.IsValid)
+      {
+        return BadRequest();
+      }
+      else
+      {
+        try
+        {
+          var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
+          url = Uri.EscapeUriString(url + "/" + employeeId);
+
+          var employee = await _httpClient.GetStringAsync(url);
+
+          return Ok(employee);
+        }
+        catch (Exception ex)
+        {
+          _logger.LogError(1, ex, "Unable to get employee by id");
+          return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+      }
+    }
+
+    [HttpGet("QueryByFullName/{firstName}/{lastName}")]
+    [ProducesResponseType(typeof(List<Employee>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> QueryByFullName(string firstName, string lastName)
+    {
+      try
+      {
+        var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.QueryForEmployeesByFullNameEndpoint;
+        url = Uri.EscapeUriString(url + "/" + firstName + "/" + lastName);
+
+        var employees = await _httpClient.GetStringAsync(url);
+
+        return Ok(employees);
+      }
+      catch (Exception e)
+      {
+        _logger.LogError("Unable to query for employees by full name: " + e.Message);
+        return StatusCode(StatusCodes.Status500InternalServerError);
+      }
+    }
+
+
   }
 }

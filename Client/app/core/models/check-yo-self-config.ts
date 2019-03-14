@@ -7,4 +7,5 @@ export class CheckYoSelfConfig {
   public employeesButtonVisible: boolean;
   public listEmployeesEndpoint: string;
   public employeesApiBaseUrl: string;
+  public queryForEmployeesByFullNameEndpoint: string;
 }
