@@ -4,4 +4,5 @@
 export class CheckYoSelfConfig {
   public monthsApiEndpoint: string;
   public checksApiEndpoint: string;
+  public employeesButtonVisible: boolean;
 }

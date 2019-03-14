@@ -6,5 +6,6 @@ namespace paycheck_calculator_web.Server.Entities.Config
   {
     public string MonthsApiEndpoint { get; set; }
     public string ChecksApiEndpoint { get; set; }
+    public bool EmployeesButtonVisible { get; set; }
   }
 }

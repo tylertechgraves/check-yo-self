@@ -12,6 +12,7 @@ import { SharedModule } from './shared/shared.module';
 import { routing } from './app.routes';
 import { AppComponent } from './app.component';
 import { PaycheckCalculatorModule } from './paycheck-calculator/paycheck-calculator.module';
+import { EmployeesModule } from './employees/employees.module';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslatePoHttpLoader(http, 'i18n', '.po');
@@ -34,7 +35,8 @@ export function createTranslateLoader(http: HttpClient) {
                 deps: [HttpClient]
             }
         }),
-        PaycheckCalculatorModule
+        PaycheckCalculatorModule,
+        EmployeesModule
     ],
     bootstrap: [AppComponent]
 })

@@ -1,9 +1,9 @@
 import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
 
 const routes: Routes = [
+  { path: 'app-config', loadChildren: './app-config/app-config.module#AppConfigModule' },
   { path: '', redirectTo: 'paycheck-calculator', pathMatch: 'full' },
-  { path: '**', redirectTo: 'paycheck-calculator', pathMatch: 'full' },
-  { path: 'app-config', loadChildren: './app-config/app-config.module#AppConfigModule' }
+  { path: '**', redirectTo: 'paycheck-calculator', pathMatch: 'full' }
 ];
 
 /**
