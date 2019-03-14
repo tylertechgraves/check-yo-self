@@ -5,9 +5,24 @@
 </div>
 
 <div>
-  <mat-list>
-    <mat-list-item *ngFor="let employee of employeesList" fxLayout="column" fxLayoutAlign="center center">
-      {{ employee.lastName}}
-    </mat-list-item>
-  </mat-list>
+  <mat-card *ngFor="let employee of employeesList">
+    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      <div fxLayout="column" fxLayoutAlign="start center">
+        <div class="employeeField">
+          {{ employee.employeeId }}
+        </div>
+        <div class="employeeField">
+          <h2>
+            {{ employee.lastName }}, {{ employee.firstName }}
+          </h2>
+        </div>
+        <div class="employeeField">
+          {{ employee.salary | currency }}
+        </div>
+        <div class="employeeField">
+          1st paycheck on {{ employee.firstPaycheckDate | date:'shortDate' }}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
 </div>
