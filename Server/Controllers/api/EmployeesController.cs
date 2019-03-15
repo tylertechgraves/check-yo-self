@@ -9,6 +9,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using paycheck_calculator_web.Server.Entities.Config;
+using Newtonsoft.Json;
+using System.Net.Http.Headers;
 
 namespace paycheck_calculator_web.Server.Controllers.api
 {
@@ -100,6 +102,46 @@ namespace paycheck_calculator_web.Server.Controllers.api
       }
     }
 
+    [HttpPut("{employeeId}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    public async Task<IActionResult> Update(int employeeId, [FromBody]Employee employee)
+    {
+      if (!ModelState.IsValid)
+      {
+        return BadRequest();
+      }
+      else
+      {
+        try
+        {
+          if (employeeId != employee.EmployeeId)
+            return BadRequest();
 
+          var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
+          url = Uri.EscapeUriString(url + "/" + employeeId);
+
+          var content = new StringContent(JsonConvert.SerializeObject(employee));
+          MediaTypeHeaderValue headerValue = new MediaTypeHeaderValue("application/json");
+          content.Headers.ContentType = headerValue;
+
+          var response = await _httpClient.PutAsync(url, content);
+
+          if (response.IsSuccessStatusCode)
+            return NoContent();
+          else
+          {
+            _logger.LogError("Unable to update the specified employee with id: " + employee.EmployeeId);
+            return StatusCode(StatusCodes.Status500InternalServerError);
+          }
+        }
+        catch (Exception ex)
+        {
+          _logger.LogError(1, ex, "Unable to update the specified employee with id: " + employee.EmployeeId);
+          return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+      }
+    }
   }
 }
