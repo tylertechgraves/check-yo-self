@@ -143,5 +143,43 @@ namespace paycheck_calculator_web.Server.Controllers.api
         }
       }
     }
+
+    [HttpPost]
+    [ProducesResponseType(typeof(Employee), StatusCodes.Status201Created)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<IActionResult> Post([FromBody]Employee employee)
+    {
+      if (!ModelState.IsValid)
+      {
+        return BadRequest();
+      }
+      else
+      {
+        try
+        {
+          var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
+          var content = new StringContent(JsonConvert.SerializeObject(employee));
+          MediaTypeHeaderValue headerValue = new MediaTypeHeaderValue("application/json");
+          content.Headers.ContentType = headerValue;
+
+          var response = await _httpClient.PostAsync(url, content);
+          var responseContent = await response.Content.ReadAsStringAsync();
+ 
+          if (response.IsSuccessStatusCode)
+            return Created("/" + _appConfig.CheckYoSelf.ListEmployeesEndpoint, responseContent);
+          else
+          {
+            _logger.LogError("Unable to add new employee: " + employee.LastName + ", " + employee.FirstName);
+            return StatusCode(StatusCodes.Status500InternalServerError);
+          }
+        }
+        catch (Exception ex)
+        {
+          _logger.LogError(1, ex, "Unable to add new employee: " + employee.LastName + ", " + employee.FirstName);
+          return StatusCode(StatusCodes.Status500InternalServerError);
+        }
+      }
+    }
   }
 }
