@@ -24,6 +24,12 @@ export class EmployeesService {
     return this.httpClient.post<Employee>(addEmployeeEndpoint, employee);
   }
 
+  public editEmployee(employee: Employee): Observable<Employee> {
+    const editEmployeeEndpoint = ConfigService.config.checkYoSelf.listEmployeesEndpoint + '/' + employee.employeeId;
+
+    return this.httpClient.put<Employee>(editEmployeeEndpoint, employee);
+  }
+
   public searchForEmloyeeById(employeeId: number): Observable<Employee> {
     const listEmployeesEndpoint: string = ConfigService.config.checkYoSelf.listEmployeesEndpoint;
 

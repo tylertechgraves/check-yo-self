@@ -35,10 +35,6 @@ export class EditEmployeesComponent implements OnInit {
     });
   }
 
-  editEmployee() {
-
-  }
-
   searchForEmployee() {
     if (this.queryOption === 'ID') {
       this.employeesService.searchForEmloyeeById(this.formEmployee.employeeId).subscribe((response: Employee) => {
@@ -80,7 +76,8 @@ export class EditEmployeeDialogComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<EditEmployeeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public employee: Employee,
-    private _formBuilder: FormBuilder) {}
+    private _formBuilder: FormBuilder,
+    private employeesService: EmployeesService ) {}
 
     ngOnInit() {
       this.createFormGroup();
@@ -89,6 +86,7 @@ export class EditEmployeeDialogComponent implements OnInit {
 
   createFormGroup() {
     this.editFormGroup = this._formBuilder.group({
+      employeeId: [this.employee.employeeId],
       firstName: [this.employee.firstName, Validators.required],
       lastName: [this.employee.lastName, Validators.required],
       salary: [this.employee.salary, [Validators.min(1), Validators.required]],
@@ -108,7 +106,9 @@ export class EditEmployeeDialogComponent implements OnInit {
   }
 
   editEmployee() {
-
+    this.employeesService.editEmployee(this.employee).subscribe(response => {
+      const responseData = response;
+    });
   }
 
 }
