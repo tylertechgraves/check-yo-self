@@ -1,8 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { FormGroup, NgForm } from '@angular/forms';
 import { Employee } from '../../core/models/employee';
 import { EmployeesService } from '../employees.service';
 import { MatSnackBarHorizontalPosition, MatSnackBar } from '@angular/material';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'appc-add-employees',
@@ -11,6 +12,7 @@ import { MatSnackBarHorizontalPosition, MatSnackBar } from '@angular/material';
 })
 export class AddEmployeesComponent implements OnInit {
   @Input() addFormGroup: FormGroup;
+  @ViewChild('formDirective') private formDirective: NgForm;
 
   private horizontalPosition: MatSnackBarHorizontalPosition = 'center';
   private employee: Employee;
@@ -35,6 +37,8 @@ export class AddEmployeesComponent implements OnInit {
     if (this.addFormGroup.valid) {
       this.employeeService.addEmployee(this.employee).subscribe((response: Employee) => {
         this.employee = new Employee();
+        this.formDirective.resetForm();
+        this.addFormGroup.reset({firstPaycheckDate: new Date()});
 
         this.openSnackBar('Employee has been added to the employees database', '');
       });

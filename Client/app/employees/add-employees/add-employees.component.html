@@ -1,5 +1,5 @@
 <div style="padding-top: 10px;">
-    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="addFormGroup" class="mat-typography">
+    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="addFormGroup" #formDirective="ngForm" class="mat-typography">
         <mat-form-field fxFill>
           <input matInput placeholder="Last" required formControlName="lastName">
 
