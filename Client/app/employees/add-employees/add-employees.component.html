@@ -1,45 +1,44 @@
 <div style="padding-top: 10px;">
-    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="addFormGroup" #formDirective="ngForm" class="mat-typography">
-        <mat-form-field fxFill>
-          <input matInput placeholder="Last" required formControlName="lastName">
+  <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="addFormGroup" #formDirective="ngForm" class="mat-typography">
+    <mat-form-field fxFill>
+      <input matInput placeholder="Last" required formControlName="lastName">
 
-          <mat-error *ngIf="addFormGroup.controls['lastName'].hasError('required')">
-            Last name is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-    
-        <mat-form-field fxFill>
-          <input matInput placeholder="First" required formControlName="firstName">
+      <mat-error *ngIf="addFormGroup.controls['lastName'].hasError('required')">
+        Last name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
 
-          <mat-error *ngIf="addFormGroup.controls['firstName'].hasError('required')">
-            First name is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-    
-        <mat-form-field fxFill>
-          <input matInput placeholder="Salary" required formControlName="salary">
+    <mat-form-field fxFill>
+      <input matInput placeholder="First" required formControlName="firstName">
 
-          <mat-error *ngIf="addFormGroup.controls['salary'].hasError('required')">
-            Salary is <strong>required</strong>
-          </mat-error>
-          <mat-error *ngIf="addFormGroup.controls['salary'].hasError('min')">
-            Salary must be at least <strong>one dollar</strong>
-          </mat-error>
-        </mat-form-field>
+      <mat-error *ngIf="addFormGroup.controls['firstName'].hasError('required')">
+        First name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
 
-        <mat-form-field fxFill>
-          <label for="dbxStartDate">Start Date</label>
-          <input id="dbxStartDate" matInput [matDatepicker]="picker" formControlName="firstPaycheckDate">
-          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-    
-          <mat-error *ngIf="addFormGroup.controls['firstPaycheckDate'].hasError('required')">
-            First paycheck date is <strong>required</strong>
-          </mat-error>
-        </mat-form-field>
-    
-        <div>
-          <button mat-raised-button color="primary" matStepperNext accesskey="a" (click)="addEmployee()"><u>A</u>dd</button>
-        </div>
-    </form>
+    <mat-form-field fxFill>
+      <input matInput placeholder="Salary" required formControlName="salary">
+
+      <mat-error *ngIf="addFormGroup.controls['salary'].hasError('required')">
+        Salary is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="addFormGroup.controls['salary'].hasError('min')">
+        Salary must be at least <strong>one dollar</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field fxFill>
+      <input id="dbxStartDate" matInput [matDatepicker]="picker" formControlName="firstPaycheckDate" placeholder="First Paycheck Date">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+
+      <mat-error *ngIf="addFormGroup.controls['firstPaycheckDate'].hasError('required')">
+        First paycheck date is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="primary" matStepperNext accesskey="a" (click)="addEmployee()"><u>A</u>dd</button>
+    </div>
+  </form>
 </div>

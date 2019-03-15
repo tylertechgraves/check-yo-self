@@ -5,9 +5,10 @@ import { EmployeesService } from './employees.service';
 import { employeesRouting } from './employees.routes';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatButtonModule, MatInputModule, MatDividerModule, MatTabsModule, MatDatepickerModule, MatNativeDateModule, MatCardModule, MatSnackBarModule } from '@angular/material';
+import { MatFormFieldModule, MatButtonModule, MatInputModule, MatDividerModule, MatTabsModule, MatDialogModule } from '@angular/material';
+import { MatDatepickerModule, MatNativeDateModule, MatCardModule, MatSnackBarModule, MatRadioModule } from '@angular/material';
 import { ListEmployeesComponent } from './list-employees/list-employees.component';
-import { EditEmployeesComponent } from './edit-employees/edit-employees.component';
+import { EditEmployeesComponent, EditEmployeeDialogComponent } from './edit-employees/edit-employees.component';
 import { AddEmployeesComponent } from './add-employees/add-employees.component';
 
 @NgModule({
@@ -25,9 +26,12 @@ import { AddEmployeesComponent } from './add-employees/add-employees.component';
     FormsModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatRadioModule,
+    MatDialogModule
   ],
-  declarations: [EmployeesComponent, ListEmployeesComponent, EditEmployeesComponent, AddEmployeesComponent],
+  declarations: [EmployeesComponent, ListEmployeesComponent, EditEmployeesComponent, AddEmployeesComponent, EditEmployeeDialogComponent],
+  entryComponents: [EditEmployeeDialogComponent],
   providers: [EmployeesService]
 })
 export class EmployeesModule { }

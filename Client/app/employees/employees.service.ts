@@ -24,4 +24,17 @@ export class EmployeesService {
     return this.httpClient.post<Employee>(addEmployeeEndpoint, employee);
   }
 
+  public searchForEmloyeeById(employeeId: number): Observable<Employee> {
+    const listEmployeesEndpoint: string = ConfigService.config.checkYoSelf.listEmployeesEndpoint;
+
+    return this.httpClient.get<Employee>(listEmployeesEndpoint + '/' + employeeId);
+  }
+
+  public searchForEmloyeeByFullName(lastName: string, firstName: string): Observable<Employee[]> {
+    const listEmployeesEndpoint: string = ConfigService.config.checkYoSelf.queryForEmployeesByFullNameEndpoint;
+    const url = encodeURI(listEmployeesEndpoint + '/' + firstName + '/' + lastName);
+
+    return this.httpClient.get<Employee[]>(url);
+  }
+
 }
