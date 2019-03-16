@@ -5,7 +5,7 @@ import { EmployeesService } from './employees.service';
 import { employeesRouting } from './employees.routes';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatFormFieldModule, MatButtonModule, MatInputModule, MatDividerModule, MatTabsModule, MatDialogModule } from '@angular/material';
+import { MatFormFieldModule, MatButtonModule, MatInputModule, MatDividerModule, MatTabsModule, MatDialogModule, MatTooltipModule } from '@angular/material';
 import { MatDatepickerModule, MatNativeDateModule, MatCardModule, MatSnackBarModule, MatRadioModule } from '@angular/material';
 import { ListEmployeesComponent } from './list-employees/list-employees.component';
 import { EditEmployeesComponent, EditEmployeeDialogComponent } from './edit-employees/edit-employees.component';
@@ -28,7 +28,8 @@ import { AddEmployeesComponent } from './add-employees/add-employees.component';
     MatCardModule,
     MatSnackBarModule,
     MatRadioModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   declarations: [EmployeesComponent, ListEmployeesComponent, EditEmployeesComponent, AddEmployeesComponent, EditEmployeeDialogComponent],
   entryComponents: [EditEmployeeDialogComponent],

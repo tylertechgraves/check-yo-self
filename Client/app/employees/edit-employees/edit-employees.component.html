@@ -39,7 +39,7 @@
 </div>
 
 <div style="padding-top: 20px;">
-  <mat-card *ngFor="let employee of employeesList" (click)="openEditDialog(employee)">
+  <mat-card *ngFor="let employee of employeesList" (click)="openEditDialog(employee)" matTooltip="Click to edit the employee." style="cursor: pointer;">
     <mat-card-content fxLayout="column" fxLayoutAlign="center center">
       <div fxLayout="column" fxLayoutAlign="start center">
         <div class="employeeField">
@@ -61,10 +61,14 @@
   </mat-card>
 </div>
 
-<div *ngIf="queryOption === 'Name' && employeesList !== undefined  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+<div *ngIf="queryOption === 'Name' && formIsClean !== true  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
   No employees match the specified name.
 </div>
 
-<div *ngIf="queryOption === 'ID' && employeesList !== undefined  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+<div *ngIf="queryOption === 'ID' && formIsClean !== true  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
   No employees match the specified ID.
+</div>
+
+<div *ngIf="formIsClean === true" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+  Please enter parameters and then click the Search button.
 </div>

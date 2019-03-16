@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, Inject } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit, Input, Inject, ViewChild } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, NgForm } from '@angular/forms';
 import { EmployeesService } from '../employees.service';
 import { Employee } from '../../core/models/employee';
-import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material';
 
 @Component({
   selector: 'appc-edit-employees',
@@ -12,11 +12,13 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class EditEmployeesComponent implements OnInit {
   @Input() editFormGroup: FormGroup;
 
+  @ViewChild('formDirective') private formDirective: NgForm;
+  
   public queryOptions: string[] = ['ID', 'Name'];
   public queryOption: string;
   public employeesList: Employee[];
+  public formIsClean: boolean;
   private formEmployee: Employee;
-  private selectedEmployee: Employee;
 
   constructor(
     private employeesService: EmployeesService,
@@ -26,6 +28,7 @@ export class EditEmployeesComponent implements OnInit {
   ngOnInit() {
     this.queryOption = 'ID';
     this.setUpFormModelSubscription();
+    this.formIsClean = true;
   }
 
   setUpFormModelSubscription() {
@@ -49,11 +52,11 @@ export class EditEmployeesComponent implements OnInit {
         this.employeesList = response;
       });
     }
+
+    this.formIsClean = false;
   }
 
   openEditDialog(employee: Employee) {
-    this.selectedEmployee = employee;
-
     const dialogRef = this.dialog.open(EditEmployeeDialogComponent, {
       width: '250px',
       height: '315px',
@@ -61,7 +64,11 @@ export class EditEmployeesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.selectedEmployee = result;
+      this.employeesList = [];
+
+      this.formIsClean = true;
+      this.formDirective.resetForm();
+      this.editFormGroup.reset();
     });
   }
 }
@@ -72,12 +79,14 @@ export class EditEmployeesComponent implements OnInit {
 })
 export class EditEmployeeDialogComponent implements OnInit {
   public editFormGroup: FormGroup;
+  private horizontalPosition: MatSnackBarHorizontalPosition = 'center';
 
   constructor(
-    public dialogRef: MatDialogRef<EditEmployeeDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public employee: Employee,
+    public dialogRef: MatDialogRef<EditEmployeeDialogComponent>,
     private _formBuilder: FormBuilder,
-    private employeesService: EmployeesService ) {}
+    private employeesService: EmployeesService,
+    private snackBar: MatSnackBar ) {}
 
     ngOnInit() {
       this.createFormGroup();
@@ -108,7 +117,17 @@ export class EditEmployeeDialogComponent implements OnInit {
   editEmployee() {
     this.employeesService.editEmployee(this.employee).subscribe(response => {
       const responseData = response;
+
+      this.openSnackBar('Employee has been updated in the employees database', '');
+
+      this.dialogRef.close();
     });
   }
 
+  private openSnackBar(message: string, action: string) {
+    this.snackBar.open(message, action, {
+      duration: 2000,
+      horizontalPosition: this.horizontalPosition
+    });
+  }
 }
