@@ -37,7 +37,8 @@ namespace paycheck_calculator_web.Server.Controllers.api
                 var paycheck = new Paycheck()
                 {
                     PaymentDate = date,
-                    MonthSubordinal = date.Month
+                    MonthSubordinal = date.Month,
+                    Year = date.Year
                 };
                 result.Add(paycheck);
 
@@ -68,7 +69,8 @@ namespace paycheck_calculator_web.Server.Controllers.api
                 var paycheck = new Paycheck()
                 {
                     PaymentDate = startDate,
-                    MonthSubordinal = startDate.Month
+                    MonthSubordinal = startDate.Month,
+                    Year = startDate.Year
                 };
 
                 result.Add(paycheck);
@@ -83,13 +85,15 @@ namespace paycheck_calculator_web.Server.Controllers.api
         {
             var result = new List<Month>();
 
-            var monthGroupings = paychecks.GroupBy(p => p.MonthSubordinal).Where(g => g.Count() == numberOfChecksInAGivenMonth);
+            var monthGroupings = paychecks.GroupBy(p => new { p.Year, p.MonthSubordinal }).Where(g => g.Count() == numberOfChecksInAGivenMonth);
 
             foreach (var group in monthGroupings)
             {
+                var year = group.Key.Year;
+
                 var month = new Month()
                 {
-                    Description = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(group.Key)
+                    Description = CultureInfo.CurrentCulture.DateTimeFormat.GetMonthName(group.Key.MonthSubordinal) + " " + year
                 };
                 
                 result.Add(month);

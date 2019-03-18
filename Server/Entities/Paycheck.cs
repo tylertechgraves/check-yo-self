@@ -9,5 +9,6 @@ namespace paycheck_calculator_web.Server.Entities
 
         public DateTime PaymentDate { get; set; }
         public int MonthSubordinal { get; set; }
+        public int Year { get; set; }
     }
 }
