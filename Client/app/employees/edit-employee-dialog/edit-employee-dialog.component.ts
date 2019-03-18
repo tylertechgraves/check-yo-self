@@ -5,7 +5,7 @@ import { Employee } from '../../core/models/employee';
 import { EmployeesService } from '../employees.service';
 
 @Component({
-  selector: 'edit-employee-dialog',
+  selector: 'appc-edit-employee-dialog',
   templateUrl: 'edit-employee-dialog.component.html',
 })
 export class EditEmployeeDialogComponent implements OnInit {
