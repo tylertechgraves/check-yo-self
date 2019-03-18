@@ -43,4 +43,11 @@ export class EmployeesService {
     return this.httpClient.get<Employee[]>(url);
   }
 
+  public searchForEmloyeeByLastName(lastName: string): Observable<Employee[]> {
+    const listEmployeesEndpoint: string = ConfigService.config.checkYoSelf.queryForEmployeesByLastNameEndpoint;
+    const url = encodeURI(listEmployeesEndpoint + '/' + lastName);
+
+    return this.httpClient.get<Employee[]>(url);
+  }
+
 }

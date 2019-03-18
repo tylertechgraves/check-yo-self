@@ -49,8 +49,16 @@ export class EditEmployeesComponent implements OnInit {
           this.employeesList = [response];
         }
       });
-    } else {
+    }
+
+    if (this.queryOption === 'Full Name') {
       this.employeesService.searchForEmloyeeByFullName(this.formEmployee.lastName, this.formEmployee.firstName).subscribe((response: Employee[]) => {
+        this.employeesList = response;
+      });
+    }
+
+    if (this.queryOption === 'Last Name') {
+      this.employeesService.searchForEmloyeeByLastName(this.formEmployee.lastName).subscribe((response: Employee[]) => {
         this.employeesList = response;
       });
     }
@@ -67,7 +75,7 @@ export class EditEmployeesComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        if (this.queryOption === 'ID') {
+        if (this.queryOption === 'ID' || this.queryOption === 'Last Name') {
           this.searchForEmployee();
         } else {
           this.employeesList = [];
