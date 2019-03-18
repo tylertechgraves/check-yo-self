@@ -8,7 +8,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule, MatButtonModule, MatInputModule, MatDividerModule, MatTabsModule, MatDialogModule, MatTooltipModule } from '@angular/material';
 import { MatDatepickerModule, MatNativeDateModule, MatCardModule, MatSnackBarModule, MatRadioModule } from '@angular/material';
 import { ListEmployeesComponent } from './list-employees/list-employees.component';
-import { EditEmployeesComponent, EditEmployeeDialogComponent } from './edit-employees/edit-employees.component';
+import { EditEmployeeDialogComponent } from './edit-employee-dialog/edit-employee-dialog.component';
+import { EditEmployeesComponent } from './edit-employees/edit-employees.component';
 import { AddEmployeesComponent } from './add-employees/add-employees.component';
 
 @NgModule({
