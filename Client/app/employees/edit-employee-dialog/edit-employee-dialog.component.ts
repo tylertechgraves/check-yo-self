@@ -17,12 +17,12 @@ export class EditEmployeeDialogComponent implements OnInit {
     public dialogRef: MatDialogRef<EditEmployeeDialogComponent>,
     private _formBuilder: FormBuilder,
     private employeesService: EmployeesService,
-    private snackBar: MatSnackBar ) {}
+    private snackBar: MatSnackBar) { }
 
-    ngOnInit() {
-      this.createFormGroup();
-      this.setUpFormModelSubscription();
-    }
+  ngOnInit() {
+    this.createFormGroup();
+    this.setUpFormModelSubscription();
+  }
 
   createFormGroup() {
     this.editFormGroup = this._formBuilder.group({
@@ -42,7 +42,7 @@ export class EditEmployeeDialogComponent implements OnInit {
   }
 
   onNoClick(): void {
-    this.dialogRef.close();
+    this.dialogRef.close(false);
   }
 
   editEmployee() {
@@ -51,7 +51,7 @@ export class EditEmployeeDialogComponent implements OnInit {
 
       this.openSnackBar('Employee has been updated in the employees database', '');
 
-      this.dialogRef.close();
+      this.dialogRef.close(true);
     });
   }
 

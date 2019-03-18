@@ -66,11 +66,17 @@ export class EditEmployeesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.employeesList = [];
+      if (result) {
+        if (this.queryOption === 'ID') {
+          this.searchForEmployee();
+        } else {
+          this.employeesList = [];
 
-      this.formIsClean = true;
-      this.formDirective.resetForm();
-      this.editFormGroup.reset();
+          this.formIsClean = true;
+          this.formDirective.resetForm();
+          this.editFormGroup.reset();
+        }
+      }
     });
   }
 }
