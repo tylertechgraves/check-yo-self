@@ -12,12 +12,12 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSnackBar, MatSnackBarHoriz
 export class EditEmployeesComponent implements OnInit {
   @Input() editFormGroup: FormGroup;
 
-  @ViewChild('formDirective') private formDirective: NgForm;
-  
   public queryOptions: string[] = ['ID', 'Name'];
   public queryOption: string;
   public employeesList: Employee[];
   public formIsClean: boolean;
+
+  @ViewChild('formDirective') private formDirective: NgForm;
   private formEmployee: Employee;
 
   constructor(
