@@ -102,6 +102,29 @@ namespace paycheck_calculator_web.Server.Controllers.api
       }
     }
 
+    [HttpGet("QueryByLastName/{lastName}")]
+    [ProducesResponseType(typeof(List<Employee>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status500InternalServerError)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> QueryByLastName(string lastName)
+    {
+      try
+      {
+        var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.QueryForEmployeesByLastNameEndpoint;
+        url = Uri.EscapeUriString(url + "/" + lastName);
+
+        var employees = await _httpClient.GetStringAsync(url);
+
+        return Ok(employees);
+      }
+      catch (Exception e)
+      {
+        _logger.LogError("Unable to query for employees by full name: " + e.Message);
+        return StatusCode(StatusCodes.Status500InternalServerError);
+      }
+    }
+
     [HttpPut("{employeeId}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]

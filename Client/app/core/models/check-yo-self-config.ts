@@ -8,4 +8,5 @@ export class CheckYoSelfConfig {
   public listEmployeesEndpoint: string;
   public employeesApiBaseUrl: string;
   public queryForEmployeesByFullNameEndpoint: string;
+  public queryForEmployeesByLastNameEndpoint: string;
 }

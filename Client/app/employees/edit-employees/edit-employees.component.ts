@@ -13,7 +13,7 @@ import { EditEmployeeDialogComponent } from '../edit-employee-dialog/edit-employ
 export class EditEmployeesComponent implements OnInit {
   @Input() editFormGroup: FormGroup;
 
-  public queryOptions: string[] = ['ID', 'Name'];
+  public queryOptions: string[] = ['ID', 'Full Name', 'Last Name'];
   public queryOption: string;
   public employeesList: Employee[];
   public formIsClean: boolean;

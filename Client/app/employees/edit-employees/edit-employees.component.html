@@ -16,7 +16,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field fxFill *ngIf="queryOption === 'Name'">
+    <mat-form-field fxFill *ngIf="queryOption === 'Full Name'">
       <input matInput placeholder="First" required formControlName="firstName">
 
       <mat-error *ngIf="editFormGroup.controls['firstName'].hasError('required')">
@@ -24,7 +24,7 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field fxFill *ngIf="queryOption === 'Name'">
+    <mat-form-field fxFill *ngIf="queryOption === 'Full Name' || queryOption === 'Last Name'">
       <input matInput placeholder="Last" required formControlName="lastName">
 
       <mat-error *ngIf="editFormGroup.controls['lastName'].hasError('required')">
@@ -61,7 +61,7 @@
   </mat-card>
 </div>
 
-<div *ngIf="queryOption === 'Name' && formIsClean !== true  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+<div *ngIf="(queryOption === 'Full Name' || queryOption === 'Last Name') && formIsClean !== true  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
   No employees match the specified name.
 </div>
 

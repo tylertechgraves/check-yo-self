@@ -10,5 +10,6 @@ namespace paycheck_calculator_web.Server.Entities.Config
     public string ListEmployeesEndpoint { get; set; }
     public string EmployeesApiBaseUrl { get; set; }
     public string QueryForEmployeesByFullNameEndpoint { get; set; }
+    public string QueryForEmployeesByLastNameEndpoint { get; set; }
   }
 }
