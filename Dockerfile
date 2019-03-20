@@ -1,4 +1,4 @@
-FROM mcr.microsoft.com/dotnet/core/aspnet:2.1-alpine
+FROM mcr.microsoft.com/dotnet/core/aspnet:2.1
 ARG Configuration=Debug
 WORKDIR /app
 EXPOSE 80
