@@ -1,0 +1,59 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    run: check-yo-self
+  name: check-yo-self
+spec:
+  replicas: 1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        run: check-yo-self
+    spec:
+      containers:
+      - image: check-yo-self:1.0.0
+        name: check-yo-self
+        env:
+        - name: CheckYoSelf__employeesApiBaseUrl
+          value: http://check-yo-self-api/
+        ports:
+        - containerPort: 80
+        resources: {}
+      restartPolicy: Always
+      # imagePullSecrets:
+      # - name: tylerorg
+status: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: check-yo-self
+  labels:
+    run: check-yo-self
+spec:
+  ports:
+  - name: http
+    targetPort: 80
+    port: 80
+  selector:
+    run: check-yo-self
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  name: check-yo-self
+spec:
+  rules:
+  # You need to change your hosts file to point 127.0.0.1 to check-yo-self
+  - host: check-yo-self
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: check-yo-self
+          servicePort: http
