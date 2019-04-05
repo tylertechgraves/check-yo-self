@@ -9,7 +9,7 @@ number of checks will be received over the course of the next year.
 
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Omnisharp Extension for Visual Studio Code (install within Visual Studio Code)](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md)
-* [.NET Core SDK 2.0](https://dotnet.microsoft.com/download/dotnet-core/2.0)
+* [.NET Core SDK (take the latest version ... probably 2.2)](https://dotnet.microsoft.com/download)
 * [NodeJS (LTS)](https://nodejs.org/en/download/)
 * Docker Desktop for Windows & Mac `OR` Docker CE for Linux:
     * [Windows or Mac](https://www.docker.com/products/docker-desktop)
