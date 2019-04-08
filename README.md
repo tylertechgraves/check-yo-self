@@ -19,7 +19,7 @@ Docker containers, making this exercise void of value.
     * [Windows or Mac](https://www.docker.com/products/docker-desktop)
     * [Linux](https://docs.docker.com/install/)
 
-## Uses
+## Building the check-yo-self Container
 
 This application is intended to be used as a training tool.
 In order to package the application into a Docker container,
@@ -31,3 +31,16 @@ docker build --build-arg Configuration=Release -t check-yo-self:1.0.0 .
 ```
 
 The resulting container will be tagged `check-yo-self:1.0.0`
+
+## Running the container locally
+
+To run the container locally, run it in Docker Desktop using the following command:
+
+```bash
+docker run -p 5000:80 check-yo-self:1.0.0
+```
+
+Once the application is listening on port 80, you can navigate to the app
+in a browser by going to the following URL:
+
+[http://localhost:5000](http://localhost:5000)
