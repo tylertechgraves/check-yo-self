@@ -7,6 +7,10 @@ number of checks will be received over the course of the next year.
 
 ## Prerequisites
 
+You must be running Windows 10 Pro, MacOS, or Linux to in order to install Docker Desktop.
+If you don't have Docker Desktop installed, you will be unable to build or run
+Docker containers, making this exercise void of value.
+
 * [Visual Studio Code](https://code.visualstudio.com/download)
 * [Omnisharp Extension for Visual Studio Code (install within Visual Studio Code)](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md)
 * [.NET Core SDK (take the latest version ... probably 2.2)](https://dotnet.microsoft.com/download)
