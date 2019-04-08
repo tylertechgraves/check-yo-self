@@ -19,17 +19,11 @@ number of checks will be received over the course of the next year.
 
 This application is intended to be used as a training tool.
 In order to package the application into a Docker container,
-run the following command:
-
-```bash
-npm run publish:all:release
-```
-
-This command will run the following commands:
+run the following commands:
 
 ```bash
 dotnet publish -c Release
-docker build --build-arg Configuration=Release . -t paycheck-calculator-web
+docker build --build-arg Configuration=Release -t check-yo-self:1.0.0 .
 ```
 
-The resulting container will be tagged `paycheck-calculator-web`
+The resulting container will be tagged `check-yo-self:1.0.0`
