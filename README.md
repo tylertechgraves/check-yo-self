@@ -19,7 +19,7 @@ Docker containers, making this exercise void of value.
     * [Windows or Mac](https://www.docker.com/products/docker-desktop)
     * [Linux](https://docs.docker.com/install/)
 
-## Building the check-yo-self Container
+## Building the check-yo-self container
 
 This application is intended to be used as a training tool.
 In order to package the application into a Docker container,
