@@ -18,7 +18,6 @@ namespace paycheck_calculator_web.Server.Entities.Config
             set { this._baseUriService = value; }
         }
         public string Version { get; set; }
-        public ApplicationInsights ApplicationInsights { get; set; }
         public ConfigurationServer ConfigurationServer { get; set; }
         public CheckYoSelf CheckYoSelf { get; set; }
     }

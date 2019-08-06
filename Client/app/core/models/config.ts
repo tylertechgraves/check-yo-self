@@ -1,4 +1,3 @@
-import { ApplicationInsightsConfig } from './application-insights-config';
 import { ConfigurationServerConfig } from './config-server-config';
 import { CheckYoSelfConfig } from './check-yo-self-config';
 
@@ -26,13 +25,6 @@ export class Config {
      * Application Version
      */
     public version: string;
-    /**
-     * {@link ApplicationInsightsConfig} object
-     */
-    public applicationInsights: ApplicationInsightsConfig;
-    /**
-     * {@link ConfigurationServerConfig} object
-     */
     public configurationServer: ConfigurationServerConfig;
 
     public checkYoSelf: CheckYoSelfConfig;

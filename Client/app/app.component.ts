@@ -29,12 +29,6 @@ export class AppComponent implements OnInit, OnDestroy {
     translateService.use(translateService.getBrowserLang());
 
     console.log(`${translateService.getBrowserLang()} :: ${translateService.getBrowserCultureLang()}`);
-
-    appInsightsService.config = new AppInsightsConfig();
-    const configSettings = ConfigService.config.applicationInsights;
-    appInsightsService.config.instrumentationKey = configSettings.instrumentationKey;
-    appInsightsService.config.disableTelemetry = !configSettings.telemetryEnabled;
-    appInsightsService.init();
   }
 
   /**
