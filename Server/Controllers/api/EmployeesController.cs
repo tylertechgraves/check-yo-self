@@ -2,17 +2,16 @@ using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using check_yo_self_api.Server.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using paycheck_calculator_web.Server.Entities.Config;
-using Newtonsoft.Json;
-using System.Net.Http.Headers;
 using check_yo_self_api_client;
 using Mapster;
+using Nest;
+using System.Linq;
 
 namespace paycheck_calculator_web.Server.Controllers.api
 {
@@ -23,29 +22,52 @@ namespace paycheck_calculator_web.Server.Controllers.api
     private readonly ILogger _logger;
     private readonly AppConfig _appConfig;
     private readonly HttpClient _httpClient;
+    private IElasticClient _elasticClient;
 
     public EmployeesController(ILoggerFactory loggerFactory, IOptionsSnapshot<AppConfig> appConfig, IHttpClientFactory httpClientFactory)
     {
       _logger = loggerFactory.CreateLogger<EmployeesController>();
       _appConfig = appConfig.Value;
       _httpClient = httpClientFactory.CreateClient();
+
+      var node = new Uri(_appConfig.Elasticsearch.Uri);
+      var elasticSettings = new ConnectionSettings(node);
+
+      if (_appConfig.Elasticsearch.UseAuthentication)
+      {
+          _logger.LogDebug("We did not skip basic auth");
+          elasticSettings.BasicAuthentication(_appConfig.Elasticsearch.Username, _appConfig.Elasticsearch.Password);
+      }
+      else
+        _logger.LogDebug("We skipped basic auth");
+
+      _elasticClient = new ElasticClient(elasticSettings);
     }
 
     [HttpGet]
     [ProducesResponseType(typeof(List<check_yo_self_api.Server.Entities.Employee>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetAsync()
     {
       try
       {
-        var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
-        // var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
+        // Search for the document using the employeeId field.             
+        var searchResponse = await _elasticClient.SearchAsync<Employee>(s => s
+            .Index(_appConfig.Elasticsearch.IndexName)
+            .Query(q => q
+                .MatchAll()
+            )
+        );
 
-        var clientEmployees = await apiClient.GetAllAsync();
-        var employees = clientEmployees.Adapt<List<check_yo_self_api.Server.Entities.Employee>>();
-
-        return Ok(employees);
+        // If found, delete the document
+        if (searchResponse.IsValid)
+        {
+            return Ok(searchResponse.Documents);
+        }
+        else
+        {
+            return Ok(new List<check_yo_self_api.Server.Entities.Employee>());
+        }
       }
       catch (Exception e)
       {
@@ -53,6 +75,24 @@ namespace paycheck_calculator_web.Server.Controllers.api
         return StatusCode(StatusCodes.Status500InternalServerError);
       }
     }
+    // public async Task<IActionResult> GetAsync()
+    // {
+    //   try
+    //   {
+    //     var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
+    //     // var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
+
+    //     var clientEmployees = await apiClient.GetAllAsync();
+    //     var employees = clientEmployees.Adapt<List<check_yo_self_api.Server.Entities.Employee>>();
+
+    //     return Ok(employees);
+    //   }
+    //   catch (Exception e)
+    //   {
+    //     _logger.LogError("Unable to retrieve employees list from employees API: " + e.Message);
+    //     return StatusCode(StatusCodes.Status500InternalServerError);
+    //   }
+    // }
 
     [HttpGet("{employeeId}")]
     [ProducesResponseType(typeof(check_yo_self_api.Server.Entities.Employee), StatusCodes.Status200OK)]
