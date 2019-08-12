@@ -66,6 +66,10 @@ export class EditEmployeesComponent implements OnInit {
     this.formIsClean = false;
   }
 
+  onRadioButtonChanged() {
+    this.formDirective.resetForm();
+  }
+
   openEditDialog(employee: Employee) {
     const dialogRef = this.dialog.open(EditEmployeeDialogComponent, {
       width: '250px',

@@ -1,6 +1,6 @@
 <div style="padding-top: 10px;">
   <div style="height: 45px;">
-    <mat-radio-group class="query-radio-group" [(ngModel)]="queryOption" fxLayout="row" fxLayoutAlign="center center">
+    <mat-radio-group class="query-radio-group" [(ngModel)]="queryOption" fxLayout="row" fxLayoutAlign="center center" (change)="onRadioButtonChanged()">
       <mat-radio-button class="query-radio-button" *ngFor="let option of queryOptions" [value]="option">
         {{option}}
       </mat-radio-button>
