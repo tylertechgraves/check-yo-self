@@ -57,7 +57,7 @@ namespace paycheck_calculator_web
                     c.SwaggerDoc("v1", new Info { Title = "content", Version = "v1" });
                 })
                 .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
-                .AddSingleton<IHttpClientAccessor, DefaultHttpClientAccessor>()
+                .AddHttpClient()
                 .AddNodeServices(); // added last because it returns void and breaks the fluent API
 
             //Setup token validation method

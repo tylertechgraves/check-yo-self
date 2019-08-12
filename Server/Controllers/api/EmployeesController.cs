@@ -11,6 +11,8 @@ using Microsoft.Extensions.Options;
 using paycheck_calculator_web.Server.Entities.Config;
 using Newtonsoft.Json;
 using System.Net.Http.Headers;
+using check_yo_self_api_client;
+using Mapster;
 
 namespace paycheck_calculator_web.Server.Controllers.api
 {
@@ -22,24 +24,26 @@ namespace paycheck_calculator_web.Server.Controllers.api
     private readonly AppConfig _appConfig;
     private readonly HttpClient _httpClient;
 
-    public EmployeesController(ILoggerFactory loggerFactory, IOptionsSnapshot<AppConfig> appConfig, IHttpClientAccessor httpClientAccessor)
+    public EmployeesController(ILoggerFactory loggerFactory, IOptionsSnapshot<AppConfig> appConfig, IHttpClientFactory httpClientFactory)
     {
       _logger = loggerFactory.CreateLogger<EmployeesController>();
       _appConfig = appConfig.Value;
-      _httpClient = httpClientAccessor.Client;
+      _httpClient = httpClientFactory.CreateClient();
     }
 
     [HttpGet]
-    [ProducesResponseType(typeof(List<Employee>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(List<check_yo_self_api.Server.Entities.Employee>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetAsync()
     {
       try
       {
-        var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
+        var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
+        // var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
 
-        var employees = await _httpClient.GetStringAsync(url);
+        var clientEmployees = await apiClient.GetAllAsync();
+        var employees = clientEmployees.Adapt<List<check_yo_self_api.Server.Entities.Employee>>();
 
         return Ok(employees);
       }
@@ -51,7 +55,7 @@ namespace paycheck_calculator_web.Server.Controllers.api
     }
 
     [HttpGet("{employeeId}")]
-    [ProducesResponseType(typeof(Employee), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(check_yo_self_api.Server.Entities.Employee), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     public async Task<IActionResult> GetById(int employeeId)
@@ -64,10 +68,13 @@ namespace paycheck_calculator_web.Server.Controllers.api
       {
         try
         {
-          var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
-          url = Uri.EscapeUriString(url + "/" + employeeId);
+          var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
+          // var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
+          // url = Uri.EscapeUriString(url + "/" + employeeId);
 
-          var employee = await _httpClient.GetStringAsync(url);
+          var clientEmployee = await apiClient.GetByIdAsync(employeeId);
+
+          var employee = clientEmployee.Adapt<check_yo_self_api.Server.Entities.Employee>();
 
           return Ok(employee);
         }
@@ -80,7 +87,7 @@ namespace paycheck_calculator_web.Server.Controllers.api
     }
 
     [HttpGet("QueryByFullName/{firstName}/{lastName}")]
-    [ProducesResponseType(typeof(List<Employee>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(List<check_yo_self_api.Server.Entities.Employee>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -88,10 +95,13 @@ namespace paycheck_calculator_web.Server.Controllers.api
     {
       try
       {
-        var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.QueryForEmployeesByFullNameEndpoint;
-        url = Uri.EscapeUriString(url + "/" + firstName + "/" + lastName);
+        var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
 
-        var employees = await _httpClient.GetStringAsync(url);
+        // var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.QueryForEmployeesByFullNameEndpoint;
+        // url = Uri.EscapeUriString(url + "/" + firstName + "/" + lastName);
+
+        var clientEmployees = await apiClient.QueryByFullNameAsync(firstName, lastName);
+        var employees = clientEmployees.Adapt<List<check_yo_self_api.Server.Entities.Employee>>();
 
         return Ok(employees);
       }
@@ -103,7 +113,7 @@ namespace paycheck_calculator_web.Server.Controllers.api
     }
 
     [HttpGet("QueryByLastName/{lastName}")]
-    [ProducesResponseType(typeof(List<Employee>), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(List<check_yo_self_api.Server.Entities.Employee>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -111,10 +121,13 @@ namespace paycheck_calculator_web.Server.Controllers.api
     {
       try
       {
-        var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.QueryForEmployeesByLastNameEndpoint;
-        url = Uri.EscapeUriString(url + "/" + lastName);
+        var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
 
-        var employees = await _httpClient.GetStringAsync(url);
+        // var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.QueryForEmployeesByLastNameEndpoint;
+        // url = Uri.EscapeUriString(url + "/" + lastName);
+
+        var clientEmployees = await apiClient.GetByLastNameAsync(lastName);
+        var employees = clientEmployees.Adapt<List<check_yo_self_api.Server.Entities.Employee>>();
 
         return Ok(employees);
       }
@@ -128,8 +141,9 @@ namespace paycheck_calculator_web.Server.Controllers.api
     [HttpPut("{employeeId}")]
     [ProducesResponseType(StatusCodes.Status204NoContent)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
-    public async Task<IActionResult> Update(int employeeId, [FromBody]Employee employee)
+    public async Task<IActionResult> Update(int employeeId, [FromBody]check_yo_self_api.Server.Entities.Employee employee)
     {
       if (!ModelState.IsValid)
       {
@@ -142,22 +156,26 @@ namespace paycheck_calculator_web.Server.Controllers.api
           if (employeeId != employee.EmployeeId)
             return BadRequest();
 
-          var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
-          url = Uri.EscapeUriString(url + "/" + employeeId);
+          var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
 
-          var content = new StringContent(JsonConvert.SerializeObject(employee));
-          MediaTypeHeaderValue headerValue = new MediaTypeHeaderValue("application/json");
-          content.Headers.ContentType = headerValue;
+          // var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
+          // url = Uri.EscapeUriString(url + "/" + employeeId);
 
-          var response = await _httpClient.PutAsync(url, content);
+          // var content = new StringContent(JsonConvert.SerializeObject(employee));
+          var clientEmployee = employee.Adapt<check_yo_self_api_client.Employee>();
+          // MediaTypeHeaderValue headerValue = new MediaTypeHeaderValue("application/json");
+          // content.Headers.ContentType = headerValue;
 
-          if (response.IsSuccessStatusCode)
-            return NoContent();
-          else
+          try
           {
-            _logger.LogError("Unable to update the specified employee with id: " + employee.EmployeeId);
-            return StatusCode(StatusCodes.Status500InternalServerError);
+            await apiClient.UpdateAsync(employeeId, clientEmployee);
           }
+          catch(SwaggerException swaggerException)
+          {
+            return StatusCode(swaggerException.StatusCode);
+          }
+
+          return NoContent();
         }
         catch (Exception ex)
         {
@@ -168,10 +186,10 @@ namespace paycheck_calculator_web.Server.Controllers.api
     }
 
     [HttpPost]
-    [ProducesResponseType(typeof(Employee), StatusCodes.Status201Created)]
+    [ProducesResponseType(typeof(check_yo_self_api.Server.Entities.Employee), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
-    public async Task<IActionResult> Post([FromBody]Employee employee)
+    public async Task<IActionResult> Post([FromBody]check_yo_self_api.Server.Entities.Employee employee)
     {
       if (!ModelState.IsValid)
       {
@@ -181,21 +199,27 @@ namespace paycheck_calculator_web.Server.Controllers.api
       {
         try
         {
-          var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
-          var content = new StringContent(JsonConvert.SerializeObject(employee));
-          MediaTypeHeaderValue headerValue = new MediaTypeHeaderValue("application/json");
-          content.Headers.ContentType = headerValue;
+          var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
+          
+          // var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.ListEmployeesEndpoint;
+          // var content = new StringContent(JsonConvert.SerializeObject(employee));
+          // MediaTypeHeaderValue headerValue = new MediaTypeHeaderValue("application/json");
+          // content.Headers.ContentType = headerValue;
 
-          var response = await _httpClient.PostAsync(url, content);
-          var responseContent = await response.Content.ReadAsStringAsync();
- 
-          if (response.IsSuccessStatusCode)
-            return Created("/" + _appConfig.CheckYoSelf.ListEmployeesEndpoint, responseContent);
-          else
+          var clientEmployee = employee.Adapt<check_yo_self_api_client.Employee>();
+
+          try
           {
-            _logger.LogError("Unable to add new employee: " + employee.LastName + ", " + employee.FirstName);
-            return StatusCode(StatusCodes.Status500InternalServerError);
+            clientEmployee = await apiClient.PostAsync(clientEmployee);
           }
+          catch (SwaggerException swaggerException)
+          {
+            return StatusCode(swaggerException.StatusCode);
+          }
+
+          employee = clientEmployee.Adapt<check_yo_self_api.Server.Entities.Employee>();
+ 
+          return Created("/" + _appConfig.CheckYoSelf.ListEmployeesEndpoint, employee);
         }
         catch (Exception ex)
         {
