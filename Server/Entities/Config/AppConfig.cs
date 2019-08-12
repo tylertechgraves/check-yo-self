@@ -20,5 +20,7 @@ namespace paycheck_calculator_web.Server.Entities.Config
         public string Version { get; set; }
         public ConfigurationServer ConfigurationServer { get; set; }
         public CheckYoSelf CheckYoSelf { get; set; }
+
+        public Elasticsearch Elasticsearch { get; set; }
     }
 }
