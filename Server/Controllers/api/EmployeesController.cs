@@ -20,12 +20,14 @@ namespace paycheck_calculator_web.Server.Controllers.api
     private readonly ILogger _logger;
     private readonly AppConfig _appConfig;
     private readonly HttpClient _httpClient;
+    private EmployeesClient _apiClient;
 
     public EmployeesController(ILoggerFactory loggerFactory, IOptionsSnapshot<AppConfig> appConfig, IHttpClientFactory httpClientFactory)
     {
       _logger = loggerFactory.CreateLogger<EmployeesController>();
       _appConfig = appConfig.Value;
       _httpClient = httpClientFactory.CreateClient();
+      _apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
     }
 
     [HttpGet]
@@ -35,9 +37,7 @@ namespace paycheck_calculator_web.Server.Controllers.api
     {
       try
       {
-        var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
-
-        var clientEmployees = await apiClient.GetAllAsync();
+        var clientEmployees = await _apiClient.GetAllAsync();
         var employees = clientEmployees.Adapt<List<check_yo_self_api.Server.Entities.Employee>>();
 
         return Ok(employees);
@@ -63,9 +63,7 @@ namespace paycheck_calculator_web.Server.Controllers.api
       {
         try
         {
-          var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
-
-          var clientEmployee = await apiClient.GetByIdAsync(employeeId);
+          var clientEmployee = await _apiClient.GetByIdAsync(employeeId);
 
           var employee = clientEmployee.Adapt<check_yo_self_api.Server.Entities.Employee>();
 
@@ -88,9 +86,7 @@ namespace paycheck_calculator_web.Server.Controllers.api
     {
       try
       {
-        var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
-
-        var clientEmployees = await apiClient.GetByFullNameAsync(firstName, lastName);
+        var clientEmployees = await _apiClient.GetByFullNameAsync(firstName, lastName);
         var employees = clientEmployees.Adapt<List<check_yo_self_api.Server.Entities.Employee>>();
 
         return Ok(employees);
@@ -111,9 +107,7 @@ namespace paycheck_calculator_web.Server.Controllers.api
     {
       try
       {
-        var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
-
-        var clientEmployees = await apiClient.GetByLastNameAsync(lastName);
+        var clientEmployees = await _apiClient.GetByLastNameAsync(lastName);
         var employees = clientEmployees.Adapt<List<check_yo_self_api.Server.Entities.Employee>>();
 
         return Ok(employees);
@@ -143,13 +137,11 @@ namespace paycheck_calculator_web.Server.Controllers.api
           if (employeeId != employee.EmployeeId)
             return BadRequest();
 
-          var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
-
           var clientEmployee = employee.Adapt<check_yo_self_api_client.Employee>();
 
           try
           {
-            await apiClient.UpdateAsync(employeeId, clientEmployee);
+            await _apiClient.UpdateAsync(employeeId, clientEmployee);
           }
           catch(SwaggerException swaggerException)
           {
@@ -180,13 +172,11 @@ namespace paycheck_calculator_web.Server.Controllers.api
       {
         try
         {
-          var apiClient = new check_yo_self_api_client.EmployeesClient(_appConfig.CheckYoSelf.EmployeesApiBaseUrl, _httpClient);
-
           var clientEmployee = employee.Adapt<check_yo_self_api_client.Employee>();
 
           try
           {
-            clientEmployee = await apiClient.PostAsync(clientEmployee);
+            clientEmployee = await _apiClient.PostAsync(clientEmployee);
           }
           catch (SwaggerException swaggerException)
           {
