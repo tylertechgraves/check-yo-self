@@ -126,12 +126,12 @@ namespace paycheck_calculator_web.Server.Controllers.api
       }
     }
 
-    [HttpGet("QueryByFullName/{firstName}/{lastName}")]
+    [HttpGet("GetByFullName/{firstName}/{lastName}")]
     [ProducesResponseType(typeof(List<check_yo_self_api.Server.Entities.Employee>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> QueryByFullName(string firstName, string lastName)
+    public async Task<IActionResult> GetByFullName(string firstName, string lastName)
     {
       try
       {
@@ -140,7 +140,7 @@ namespace paycheck_calculator_web.Server.Controllers.api
         // var url = _appConfig.CheckYoSelf.EmployeesApiBaseUrl + _appConfig.CheckYoSelf.QueryForEmployeesByFullNameEndpoint;
         // url = Uri.EscapeUriString(url + "/" + firstName + "/" + lastName);
 
-        var clientEmployees = await apiClient.QueryByFullNameAsync(firstName, lastName);
+        var clientEmployees = await apiClient.GetByFullNameAsync(firstName, lastName);
         var employees = clientEmployees.Adapt<List<check_yo_self_api.Server.Entities.Employee>>();
 
         return Ok(employees);
@@ -152,12 +152,12 @@ namespace paycheck_calculator_web.Server.Controllers.api
       }
     }
 
-    [HttpGet("QueryByLastName/{lastName}")]
+    [HttpGet("GetByLastName/{lastName}")]
     [ProducesResponseType(typeof(List<check_yo_self_api.Server.Entities.Employee>), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status500InternalServerError)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
-    public async Task<IActionResult> QueryByLastName(string lastName)
+    public async Task<IActionResult> GetByLastName(string lastName)
     {
       try
       {
