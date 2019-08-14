@@ -65,7 +65,7 @@
   No employees match the specified name.
 </div>
 
-<div *ngIf="queryOption === 'ID' && formIsClean !== true  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+<div *ngIf="querying === false && queryOption === 'ID' && formIsClean !== true  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
   No employees match the specified ID.
 </div>
 

@@ -17,6 +17,7 @@ export class EditEmployeesComponent implements OnInit {
   public queryOption: string;
   public employeesList: Employee[];
   public formIsClean: boolean;
+  public querying: boolean;
 
   @ViewChild('formDirective') private formDirective: NgForm;
   private formEmployee: Employee;
@@ -41,6 +42,10 @@ export class EditEmployeesComponent implements OnInit {
   }
 
   searchForEmployee() {
+    if (this.editFormGroup.valid) {
+      this.querying = true;
+    }
+
     if (this.queryOption === 'ID') {
       this.employeesService.searchForEmloyeeById(this.formEmployee.employeeId).subscribe((response: Employee) => {
         if (response === null) {
@@ -48,18 +53,24 @@ export class EditEmployeesComponent implements OnInit {
         } else {
           this.employeesList = [response];
         }
+
+        this.querying = false;
       });
     }
 
     if (this.queryOption === 'Full Name') {
       this.employeesService.searchForEmloyeeByFullName(this.formEmployee.lastName, this.formEmployee.firstName).subscribe((response: Employee[]) => {
         this.employeesList = response;
+
+        this.querying = false;
       });
     }
 
     if (this.queryOption === 'Last Name') {
       this.employeesService.searchForEmloyeeByLastName(this.formEmployee.lastName).subscribe((response: Employee[]) => {
         this.employeesList = response;
+
+        this.querying = false;
       });
     }
 
@@ -68,6 +79,8 @@ export class EditEmployeesComponent implements OnInit {
 
   onRadioButtonChanged() {
     this.formDirective.resetForm();
+    this.employeesList = [];
+    this.querying = false;
   }
 
   openEditDialog(employee: Employee) {
