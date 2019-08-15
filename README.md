@@ -7,40 +7,19 @@ number of checks will be received over the course of the next year.
 
 ## Prerequisites
 
-You must be running Windows 10 Pro, MacOS, or Linux to in order to install Docker Desktop.
-If you don't have Docker Desktop installed, you will be unable to build or run
-Docker containers, making this exercise void of value.
-
-* [Visual Studio Code](https://code.visualstudio.com/download)
-* [Omnisharp Extension for Visual Studio Code (install within Visual Studio Code)](https://github.com/OmniSharp/omnisharp-vscode/blob/master/debugger.md)
-* [.NET Core SDK (take the latest version ... probably 2.2)](https://dotnet.microsoft.com/download)
-* [NodeJS (LTS)](https://nodejs.org/en/download/)
-* Docker Desktop for Windows & Mac `OR` Docker CE for Linux:
-    * [Windows or Mac](https://www.docker.com/products/docker-desktop)
-    * [Linux](https://docs.docker.com/install/)
+Instructions for preparing your machine for the check-yo-self app
+are located in the check-yo-self-prep-script repo located at the following
+url: <https://github.com/tylertechgraves/check-yo-self-prep-script>
 
 ## Building the check-yo-self container
 
-This application is intended to be used as a training tool.
-In order to package the application into a Docker container,
-run the following commands:
+The `dockerize.ps1` and `dockerize.sh` scripts located at the root of this project will build
+the required Docker container for this service.  Just choose one to run,
+based on the OS you're running.
 
-```bash
-dotnet publish -c Release
-docker build --build-arg Configuration=Release -t check-yo-self:1.0.0 .
-```
+## Accessing the check-yo-self frontend app
 
-The resulting container will be tagged `check-yo-self:1.0.0`
-
-## Running the container locally
-
-To run the container locally, run it in Docker Desktop using the following command:
-
-```bash
-docker run -p 5000:80 check-yo-self:1.0.0
-```
-
-Once the application is listening on port 80, you can navigate to the app
-in a browser by going to the following URL:
+Once the check-yo-self Docker container is listening on port 80,
+you can navigate to the app in a browser by going to the following URL:
 
 [http://localhost:5000](http://localhost:5000)
