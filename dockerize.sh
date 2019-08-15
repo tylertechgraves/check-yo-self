@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 dotnet publish -c Debug
-docker build --build-arg Configuration=Debug -t check-yo-self:1.0.0 .
+docker build --build-arg Configuration=Debug -t check-yo-self:1.0.2 .
