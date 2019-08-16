@@ -5,6 +5,10 @@ on which they will receive a paycheck in a specified number of years.
 It also allows a user to query for the months in which a specified
 number of checks will be received over the course of the next year.
 
+A new module has also been added that allows a user to create, update,
+and search for employees in a MySql database that is backed by
+Elasticsearch for the querying of employees.
+
 ## Prerequisites
 
 Instructions for preparing your machine for the check-yo-self app
