@@ -22,7 +22,7 @@ export class EmployeesComponent implements OnInit {
   createForm() {
     this.employeesForm = this._formBuilder.group({
       editParameters: this._formBuilder.group({
-        employeeId: ['', Validators.min(1)],
+        employeeId: ['', [Validators.min(1), Validators.pattern('^[0-9]*$')]],
         lastName: [''],
         firstName: ['']
       }),

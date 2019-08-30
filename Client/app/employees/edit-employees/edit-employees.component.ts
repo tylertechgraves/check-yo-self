@@ -42,9 +42,7 @@ export class EditEmployeesComponent implements OnInit {
   }
 
   searchForEmployee() {
-    if (this.editFormGroup.valid) {
-      this.querying = true;
-    }
+    this.querying = true;
 
     if (this.queryOption === 'ID') {
       this.employeesService.searchForEmloyeeById(this.formEmployee.employeeId).subscribe((response: Employee) => {
@@ -55,13 +53,22 @@ export class EditEmployeesComponent implements OnInit {
         }
 
         this.querying = false;
+      },
+      (error: any) => {
+        // If we get an error back, let's just assume no employees matched the id.
+        this.employeesList = [];
+        this.querying = false;
       });
     }
 
     if (this.queryOption === 'Full Name') {
       this.employeesService.searchForEmloyeeByFullName(this.formEmployee.lastName, this.formEmployee.firstName).subscribe((response: Employee[]) => {
         this.employeesList = response;
-
+        this.querying = false;
+      },
+      (error: any) => {
+        // If we get an error back, let's just assume no employees matched the id.
+        this.employeesList = [];
         this.querying = false;
       });
     }
@@ -69,7 +76,11 @@ export class EditEmployeesComponent implements OnInit {
     if (this.queryOption === 'Last Name') {
       this.employeesService.searchForEmloyeeByLastName(this.formEmployee.lastName).subscribe((response: Employee[]) => {
         this.employeesList = response;
-
+        this.querying = false;
+      },
+      (error: any) => {
+        // If we get an error back, let's just assume no employees matched the id.
+        this.employeesList = [];
         this.querying = false;
       });
     }
@@ -80,7 +91,7 @@ export class EditEmployeesComponent implements OnInit {
   onRadioButtonChanged() {
     this.formDirective.resetForm();
     this.employeesList = [];
-    this.querying = false;
+    this.formIsClean = true;
   }
 
   openEditDialog(employee: Employee) {

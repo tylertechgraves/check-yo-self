@@ -14,6 +14,12 @@
       <mat-error *ngIf="editFormGroup.controls['employeeId'].hasError('required')">
         Last name is <strong>required</strong>
       </mat-error>
+      <mat-error *ngIf="editFormGroup.controls['employeeId'].hasError('pattern')">
+        ID must be an <strong>integer</strong>
+      </mat-error>
+      <mat-error *ngIf="editFormGroup.controls['employeeId'].hasError('min')">
+        ID must be <strong>greater than zero</strong>
+      </mat-error>
     </mat-form-field>
 
     <mat-form-field fxFill *ngIf="queryOption === 'Full Name'">
@@ -61,7 +67,7 @@
   </mat-card>
 </div>
 
-<div *ngIf="(queryOption === 'Full Name' || queryOption === 'Last Name') && formIsClean !== true  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+<div *ngIf="querying === false && (queryOption === 'Full Name' || queryOption === 'Last Name') && formIsClean !== true  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
   No employees match the specified name.
 </div>
 
