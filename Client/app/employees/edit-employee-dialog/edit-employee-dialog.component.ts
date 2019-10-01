@@ -42,16 +42,14 @@ export class EditEmployeeDialogComponent implements OnInit {
   }
 
   onNoClick(): void {
-    this.dialogRef.close(false);
+    this.dialogRef.close([false, this.employee]);
   }
 
   editEmployee() {
     this.employeesService.editEmployee(this.employee).subscribe(response => {
-      const responseData = response;
-
       this.openSnackBar('Employee has been updated in the employees database', '');
 
-      this.dialogRef.close(true);
+      this.dialogRef.close([true, this.employee]);
     });
   }
 

@@ -26,7 +26,7 @@ export class ListEmployeesComponent implements OnInit {
     });
   }
 
-  openEditDialog(employee: Employee) {
+  openEditDialog(employee: Employee, index: number) {
     const dialogRef = this.dialog.open(EditEmployeeDialogComponent, {
       width: '250px',
       height: '315px',
@@ -34,8 +34,8 @@ export class ListEmployeesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        this.getEmployees();
+      if (result[0]) {
+        this.employeesList[index] = result[1];
       }
     });
   }

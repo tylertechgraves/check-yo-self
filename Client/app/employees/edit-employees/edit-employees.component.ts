@@ -94,7 +94,7 @@ export class EditEmployeesComponent implements OnInit {
     this.formIsClean = true;
   }
 
-  openEditDialog(employee: Employee) {
+  openEditDialog(employee: Employee, index: number) {
     const dialogRef = this.dialog.open(EditEmployeeDialogComponent, {
       width: '250px',
       height: '315px',
@@ -102,16 +102,8 @@ export class EditEmployeesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result) {
-        if (this.queryOption === 'ID' || this.queryOption === 'Last Name') {
-          this.searchForEmployee();
-        } else {
-          this.employeesList = [];
-
-          this.formIsClean = true;
-          this.formDirective.resetForm();
-          this.editFormGroup.reset();
-        }
+      if (result[0]) {
+        this.employeesList[index] = result[1];
       }
     });
   }
