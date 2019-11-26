@@ -1,22 +1,20 @@
 ﻿using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using paycheck_calculator_web.Server.Entities;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Identity;
+using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc;
 using paycheck_calculator_web.Server.Entities.Config;
 using Microsoft.Extensions.Options;
-using Newtonsoft.Json;
 
 namespace paycheck_calculator_web.Server.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly IHostingEnvironment _env;
+        private readonly IWebHostEnvironment _env;
         private readonly AppConfig _appConfig;
 
-        public HomeController(IHostingEnvironment env, IOptionsSnapshot<AppConfig> appConfig)
+        public HomeController(IWebHostEnvironment env, IOptionsSnapshot<AppConfig> appConfig)
         {
             _env = env;
             _appConfig =  appConfig.Value;

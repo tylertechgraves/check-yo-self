@@ -1,27 +1,13 @@
 ﻿using System;
 using Microsoft.AspNetCore.Antiforgery;
 using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.SpaServices.Webpack;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Serilog;
 
 namespace paycheck_calculator_web.Server.Extensions
 {
     public static class ApplicationBuilderExtensions
     {
-        public static IApplicationBuilder UseCustomWebpackDevMiddleware(this IApplicationBuilder app)
-        {
-            app.UseWebpackDevMiddleware(new WebpackDevMiddlewareOptions
-            {
-                HotModuleReplacement = true,
-                ConfigFile = "webpack.config.js"
-            });
-            return app;
-        }
         public static IApplicationBuilder UseCustomSwaggerApi(this IApplicationBuilder app)
         {
             // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
@@ -54,7 +40,6 @@ namespace paycheck_calculator_web.Server.Extensions
         {
             app.UseDeveloperExceptionPage();
             app.UseDatabaseErrorPage();
-            app.UseCustomWebpackDevMiddleware();
             // NOTE: For SPA swagger needs adding before MVC
             app.UseCustomSwaggerApi();
             return app;

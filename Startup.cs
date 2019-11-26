@@ -1,32 +1,33 @@
-﻿using Microsoft.AspNetCore.Builder;
+﻿using System.IO;
+using IdentityServer4.AccessTokenValidation;
+using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.SpaServices.AngularCli;
+using Microsoft.AspNetCore.StaticFiles;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using paycheck_calculator_web.Server;
-using paycheck_calculator_web.Server.Startup;
-using paycheck_calculator_web.Server.Extensions;
-using Swashbuckle.AspNetCore.Swagger;
-using paycheck_calculator_web.Server.Entities;
-using paycheck_calculator_web.Server.Entities.Config;
-using Microsoft.AspNetCore.Authentication;
-using IdentityServer4.AccessTokenValidation;
-using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.FileProviders;
-using System.IO;
-using Microsoft.AspNetCore.StaticFiles;
+using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
+using paycheck_calculator_web.Server;
+using paycheck_calculator_web.Server.Entities.Config;
+using paycheck_calculator_web.Server.Extensions;
+using paycheck_calculator_web.Server.Startup;
+using Swashbuckle.AspNetCore.Swagger;
 
 namespace paycheck_calculator_web
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration, IHostingEnvironment env)
+        public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
             Configuration = configuration;
             _env = env;
         }
 
         public IConfiguration Configuration { get; set; }
-        private IHostingEnvironment _env { get; set; }
+        private IWebHostEnvironment _env { get; set; }
 
 
         // This method gets called by the runtime. Use this method to add services to the container.
@@ -35,15 +36,14 @@ namespace paycheck_calculator_web
         {
             services.Configure<AppConfig>(Configuration)
                 .AddOptions()
-                .AddCors(options =>
+                .AddCors(options => 
                 {
                     options.AddPolicy("AllowAll",
                     builder => builder.AllowAnyOrigin()
-                      .AllowAnyHeader()
-                      .AllowAnyMethod()
-                      .AllowCredentials());
+                        .AllowAnyHeader()
+                        .AllowAnyMethod());
                 })
-                .AddResponseCompression(options =>
+                .AddResponseCompression(options => 
                 {
                     options.MimeTypes = DefaultMimeTypes.Get;
                 })
@@ -54,17 +54,20 @@ namespace paycheck_calculator_web
                 .AddCustomizedMvc()
                 .AddSwaggerGen(c =>
                 {
-                    c.SwaggerDoc("v1", new Info { Title = "content", Version = "v1" });
+                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "content", Version = "v1"});
                 })
-                .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
                 .AddHttpClient()
-                .AddNodeServices(); // added last because it returns void and breaks the fluent API
+                .AddSingleton<IHttpContextAccessor, HttpContextAccessor>()
+                .AddSpaStaticFiles(configuration =>
+                {
+                    configuration.RootPath = "wwwroot/dist";
+                });
 
             //Setup token validation method
             ConfigureTokenValidation(services);
         }
 
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IApplicationLifetime appLifetime)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IHostApplicationLifetime appLifetime)
         {
             if (env.IsProduction())
             {
@@ -88,21 +91,40 @@ namespace paycheck_calculator_web
                     RequestPath = "/i18n",
                     ContentTypeProvider = provider
                 })
+                .UseRouting()
+                .UseEndpoints(endpoints =>
+                {
+                    endpoints.MapControllerRoute(
+                        name: "default",
+                        pattern: "{controller=Home}/{action=Index}/{id?}"
+                    );
+                    // default route for MVC/API controllers
+                    // endpoints.MapRoute(
+                    //     name: "default",
+                    //     template: "{controller=Home}/{action=Index}/{id?}");
+
+                    // // fallback route for anything that does not match an MVC/API controller
+                    // // this will load the angular app and allow for the angular routes to work.
+                    // routes.MapSpaFallbackRoute(
+                    //     name: "spa-fallback",
+                    //     defaults: new { controller = "Home", action = "Index" });
+                })
                 .UseAuthentication()
                 // Enable middleware to serve generated Swagger as a JSON endpoint
                 .UseSwagger()
-                .UseMvc(routes =>
-                {
-                    // default route for MVC/API controllers
-                    routes.MapRoute(
-                        name: "default",
-                        template: "{controller=Home}/{action=Index}/{id?}");
+                .UseSpaStaticFiles();
 
-                    // fallback route for anything that does not match an MVC/API controller
-                    // this will load the angular app and allow for the angular routes to work.
-                    routes.MapSpaFallbackRoute(
-                        name: "spa-fallback",
-                        defaults: new { controller = "Home", action = "Index" });
+                app.UseSpa(spa =>
+                {
+                    // To learn more about options for serving an Angular SPA from ASP.NET Core,
+                    // see https://go.microsoft.com/fwlink/?linkid=864501
+
+                    spa.Options.SourcePath = "ClientApp";
+
+                    if (env.IsDevelopment())
+                    {
+                        spa.UseAngularCliServer(npmScript: "start");
+                    }
                 });
 
             IHttpContextAccessor httpContextAccessor = app.ApplicationServices.GetRequiredService<IHttpContextAccessor>();
@@ -116,8 +138,8 @@ namespace paycheck_calculator_web
                 {
                     // setting to false to promote working in a docker container
                     options.RequireHttpsMetadata = false; // _env.IsProduction();
-                });
+                }
+            );
         }
-
     }
 }

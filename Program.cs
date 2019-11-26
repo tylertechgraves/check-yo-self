@@ -1,11 +1,10 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Serilog;
 using System.IO;
-using paycheck_calculator_web.Server;
-using paycheck_calculator_web.Server.Extensions;
 
 namespace paycheck_calculator_web
 {

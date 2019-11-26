@@ -1,17 +1,6 @@
-﻿using System.IO;
-using System.Security.Cryptography.X509Certificates;
-using paycheck_calculator_web.Server.Entities;
-using paycheck_calculator_web.Server.Filters;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Server.Kestrel;
+﻿using paycheck_calculator_web.Server.Filters;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using System.Net;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 namespace paycheck_calculator_web.Server.Extensions
 {
@@ -23,7 +12,7 @@ namespace paycheck_calculator_web.Server.Extensions
             {
                 options.Filters.Add(typeof(ModelValidationFilter));
             })
-            .AddJsonOptions(options =>
+            .AddNewtonsoftJson(options =>             
             {
                 options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore;
             });
