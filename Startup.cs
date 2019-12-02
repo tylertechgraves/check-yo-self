@@ -84,7 +84,6 @@ namespace paycheck_calculator_web
             app.SetupMigrations()
                 .UseXsrf()
                 .UseCors("AllowAll")
-                .UseStaticFiles()
                 .UseStaticFiles(new StaticFileOptions
                 {
                     FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "i18n")),
