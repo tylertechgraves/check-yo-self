@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
     <DebugType>portable</DebugType>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>paycheck_calculator_web</AssemblyName>
     <PackageId>paycheck_calculator_web</PackageId>
     <UserSecretsId>paycheck_calculator_web-687e6517-698d-4253-b7bd-7fcdf99d5970</UserSecretsId>
-    <RuntimeFrameworkVersion>3.1.0</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>3.0.0</RuntimeFrameworkVersion>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <version>1.0.0</version>
     <authors>Tyler Technologies</authors>
