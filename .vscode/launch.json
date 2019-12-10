@@ -12,7 +12,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp3.1/paycheck_calculator_web.dll",
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp3.0/paycheck_calculator_web.dll",
             "args": [
                 // "dropdb",
                 // "migratedb",
@@ -46,7 +46,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/bin/Debug/netcoreapp3.1/paycheck_calculator_web.dll",
+            "program": "${workspaceRoot}/bin/Debug/netcoreapp3.0/paycheck_calculator_web.dll",
             "args": [],
             "cwd": "${workspaceRoot}",
             "stopAtEntry": false,
