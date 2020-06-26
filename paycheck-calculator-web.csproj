@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <DebugType>portable</DebugType>
     <PreserveCompilationContext>true</PreserveCompilationContext>
     <AssemblyName>paycheck_calculator_web</AssemblyName>
     <PackageId>paycheck_calculator_web</PackageId>
     <UserSecretsId>paycheck_calculator_web-687e6517-698d-4253-b7bd-7fcdf99d5970</UserSecretsId>
-    <RuntimeFrameworkVersion>3.0.0</RuntimeFrameworkVersion>
+    <RuntimeFrameworkVersion>3.1.5</RuntimeFrameworkVersion>
     <TypeScriptCompileBlocked>true</TypeScriptCompileBlocked>
     <version>1.0.0</version>
     <authors>Tyler Technologies</authors>
@@ -46,45 +46,45 @@
   </Target>
   <ItemGroup>
     <PackageReference Include="check-yo-self-api-sdk" Version="1.0.9-beta" />
-    <PackageReference Include="mapster" Version="4.1.0" />
+    <PackageReference Include="mapster" Version="5.3.2" />
     <PackageReference Include="IdentityServer4.AccessTokenValidation" Version="2.0.0-rc1" />
-    <PackageReference Include="Microsoft.AspNetCore.AzureAppServicesIntegration" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.0.0" />
-    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.0.0" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.0" />
-    <PackageReference Include="Microsoft.OpenApi" Version="1.1.4" />
-    <PackageReference Include="Polly" Version="7.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.AzureAppServicesIntegration" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices" Version="3.1.5" />
+    <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.UserSecrets" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.5" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="3.1.5" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.5" />
+    <PackageReference Include="Microsoft.OpenApi" Version="1.2.2" />
+    <PackageReference Include="Polly" Version="7.2.1" />
     <PackageReference Include="Serilog.Enrichers.Environment" Version="2.1.3" />
     <PackageReference Include="Serilog.Sinks.Console" Version="3.1.1" />
     <PackageReference Include="Serilog.Sinks.RollingFile" Version="3.3.0" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.0.0-rc3" />
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.0.0-rc3" />
-    <PackageReference Include="Stripe.net" Version="9.1.0" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="5.5.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="5.5.1" />
+    <PackageReference Include="Stripe.net" Version="37.14.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
     <PackageReference Include="Webpack" Version="4.0.0" />
-    <PackageReference Include="Serilog" Version="2.8.0" />
-    <PackageReference Include="Serilog.Extensions.Logging" Version="2.0.4" />
+    <PackageReference Include="Serilog" Version="2.9.0" />
+    <PackageReference Include="Serilog.Extensions.Logging" Version="3.0.1" />
     <PackageReference Include="Serilog.Sinks.Seq" Version="4.0.0" />
-    <PackageReference Include="Bogus" Version="15.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.0">
+    <PackageReference Include="Bogus" Version="29.0.2" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.5">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0">
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Winton.Extensions.Configuration.Consul" Version="2.3.0" />
+    <PackageReference Include="Winton.Extensions.Configuration.Consul" Version="3.1.0" />
   </ItemGroup>
 </Project>

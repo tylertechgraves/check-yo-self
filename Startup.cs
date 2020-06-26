@@ -84,7 +84,6 @@ namespace paycheck_calculator_web
             app.SetupMigrations()
                 .UseXsrf()
                 .UseCors("AllowAll")
-                .UseStaticFiles()
                 .UseStaticFiles(new StaticFileOptions
                 {
                     FileProvider = new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "i18n")),
@@ -119,7 +118,7 @@ namespace paycheck_calculator_web
                     // To learn more about options for serving an Angular SPA from ASP.NET Core,
                     // see https://go.microsoft.com/fwlink/?linkid=864501
 
-                    spa.Options.SourcePath = "ClientApp";
+                    spa.Options.SourcePath = "Client";
 
                     if (env.IsDevelopment())
                     {
