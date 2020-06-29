@@ -4,4 +4,4 @@ WORKDIR /app
 EXPOSE 80
 COPY bin/$Configuration/netcoreapp3.1/publish .
 ENV urls "http://*:80"
-ENTRYPOINT ["dotnet", "check_yo_self.dll"]
+ENTRYPOINT ["dotnet", "check-yo-self.dll"]
