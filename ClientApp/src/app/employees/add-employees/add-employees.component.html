@@ -17,7 +17,7 @@
     </mat-form-field>
 
     <mat-form-field fxFill>
-      <input matInput placeholder="Salary" required formControlName="salary">
+      <input matInput placeholder="Salary" type="number" required formControlName="salary">
 
       <mat-error *ngIf="addFormGroup.controls['salary'].hasError('required')">
         Salary is <strong>required</strong>
@@ -38,7 +38,7 @@
     </mat-form-field>
 
     <div>
-      <button mat-raised-button color="primary" matStepperNext accesskey="a" (click)="addEmployee()"><u>A</u>dd</button>
+      <button mat-raised-button color="primary" [disabled]="addFormGroup.invalid" matStepperNext accesskey="a" (click)="addEmployee()"><u>A</u>dd</button>
     </div>
   </form>
 </div>
