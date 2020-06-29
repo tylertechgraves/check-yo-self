@@ -4,6 +4,7 @@ import { Employee } from '../../core/models/employee';
 import { EmployeesService } from '../employees.service';
 import { MatSnackBarHorizontalPosition, MatSnackBar } from '@angular/material/snack-bar';
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { map, tap } from 'rxjs/operators';
 
 @Component({
   selector: 'appc-add-employees',
@@ -27,9 +28,15 @@ export class AddEmployeesComponent implements OnInit {
   }
 
   setUpFormModelSubscription() {
-    this.addFormGroup.valueChanges.subscribe(formModel => {
+    this.addFormGroup.valueChanges.pipe(
+      map((formData) => {
+        const {salary} = formData;
+        return {...formData, salary: parseFloat(salary)} as Employee;
+      })
+    )
+    .subscribe(employee => {
       // Retrieve the form model
-      this.employee = this.addFormGroup.value;
+      this.employee = employee;
     });
   }
 
