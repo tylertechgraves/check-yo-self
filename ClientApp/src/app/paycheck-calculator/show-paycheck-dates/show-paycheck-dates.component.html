@@ -1,0 +1,61 @@
+<div fxLayout="column" fxLayoutAlign="center center" style="text-align: center; padding-top:10px; padding-bottom:10px;">
+  In this section, Check-Yo-Self<br/>
+  will return all your paydays,<br/>
+  starting with some payday you provide,<br/>
+  looking some number of years into the future,<br/>
+  provided the number of days in your pay period.
+</div>
+
+<div>
+    <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="datesFormGroup" class="mat-typography">
+      <mat-form-field fxFill>
+        <label for="dbxStartDate">Start Date</label>
+        <input id="dbxStartDate" matInput [matDatepicker]="picker" formControlName="startDate">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+  
+        <mat-error *ngIf="datesFormGroup.controls['startDate'].hasError('required')">
+          Start date is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+      
+      <mat-form-field fxFill>
+        <label for="txtNumberOfYears">Number of years to retrieve</label>
+        <input id="txtNumberOfYears" matInput required formControlName="numberOfYearsToCheck">
+  
+        <mat-error *ngIf="datesFormGroup.controls['numberOfYearsToCheck'].hasError('required')">
+          Number of years to search is <strong>required</strong>
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field fxFill>
+          <label for="txtPayPeriodDays">Days in your pay period</label>
+          <input id="txtPayPeriodDays" matInput required formControlName="payPeriodDays">
+    
+          <mat-error *ngIf="datesFormGroup.controls['payPeriodDays'].hasError('required')">
+            Pay period days is <strong>required</strong>
+          </mat-error>
+        </mat-form-field>
+
+        <div>
+          <button mat-raised-button color="primary" accesskey="d" (click)="getPaychecks()">Get Paycheck <u>D</u>ates</button>
+        </div>
+    </form>
+  </div>
+
+  <div>
+    <mat-list>
+      <mat-list-item *ngFor="let check of returnedChecks" fxLayout="column" fxLayoutAlign="center center">
+        {{ check.paymentDate | date:'MM/dd/yyyy' }}
+      </mat-list-item>
+    </mat-list>
+  </div>
+
+  <div *ngIf="returnedChecks !== undefined && returnedChecks.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+    No paychecks match the specified parameters.
+  </div>
+
+  <div *ngIf="returnedChecks === undefined" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+    <div>Please enter parameters above,</div>
+    <div>and click the Get Paycheck Dates button.</div>
+  </div>

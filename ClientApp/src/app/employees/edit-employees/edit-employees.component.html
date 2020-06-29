@@ -1,0 +1,80 @@
+<div style="padding-top: 10px;">
+  <div style="height: 45px;">
+    <mat-radio-group class="query-radio-group" [(ngModel)]="queryOption" fxLayout="row" fxLayoutAlign="center center" (change)="onRadioButtonChanged()">
+      <mat-radio-button class="query-radio-button" *ngFor="let option of queryOptions" [value]="option">
+        {{option}}
+      </mat-radio-button>
+    </mat-radio-group>
+  </div>
+
+  <form fxLayout="column" fxLayoutAlign="center center" [formGroup]="editFormGroup" #formDirective="ngForm" class="mat-typography">
+    <mat-form-field fxFill *ngIf="queryOption === 'ID'">
+      <input matInput placeholder="ID" required formControlName="employeeId">
+
+      <mat-error *ngIf="editFormGroup.controls['employeeId'].hasError('required')">
+        Last name is <strong>required</strong>
+      </mat-error>
+      <mat-error *ngIf="editFormGroup.controls['employeeId'].hasError('pattern')">
+        ID must be an <strong>integer</strong>
+      </mat-error>
+      <mat-error *ngIf="editFormGroup.controls['employeeId'].hasError('min')">
+        ID must be <strong>greater than zero</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field fxFill *ngIf="queryOption === 'Full Name'">
+      <input matInput placeholder="First" required formControlName="firstName">
+
+      <mat-error *ngIf="editFormGroup.controls['firstName'].hasError('required')">
+        First name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field fxFill *ngIf="queryOption === 'Full Name' || queryOption === 'Last Name'">
+      <input matInput placeholder="Last" required formControlName="lastName">
+
+      <mat-error *ngIf="editFormGroup.controls['lastName'].hasError('required')">
+        Last name is <strong>required</strong>
+      </mat-error>
+    </mat-form-field>
+
+    <div>
+      <button mat-raised-button color="primary" matStepperNext accesskey="s" (click)="searchForEmployee()"><u>S</u>earch</button>
+    </div>
+  </form>
+</div>
+
+<div style="padding-top: 20px;">
+  <mat-card *ngFor="let employee of employeesList; let i = index" (click)="openEditDialog(employee, i)" matTooltip="Click to edit the employee." style="cursor: pointer;">
+    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      <div fxLayout="column" fxLayoutAlign="start center">
+        <div class="employeeField">
+          {{ employee.employeeId }}
+        </div>
+        <div class="employeeField">
+          <h2>
+            {{ employee.lastName }}, {{ employee.firstName }}
+          </h2>
+        </div>
+        <div class="employeeField">
+          {{ employee.salary | currency }}
+        </div>
+        <div class="employeeField">
+          1st paycheck on {{ employee.firstPaycheckDate | date:'shortDate' }}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<div *ngIf="querying === false && (queryOption === 'Full Name' || queryOption === 'Last Name') && formIsClean !== true  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+  No employees match the specified name.
+</div>
+
+<div *ngIf="querying === false && queryOption === 'ID' && formIsClean !== true  && employeesList.length === 0" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+  No employees match the specified ID.
+</div>
+
+<div *ngIf="formIsClean === true" style="padding-top: 10px;" fxLayout="column" fxLayoutAlign="center center">
+  Please enter parameters and then click the Search button.
+</div>

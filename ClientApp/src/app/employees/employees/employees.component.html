@@ -1,0 +1,23 @@
+<div style="width:100%;" fxLayout="column" fxLayoutAlign="center center">
+  <img src="../../../assets/images/Check-Yo-Self.png" class="expandedTopMargin">
+
+  <div>
+    <button mat-raised-button color="primary" accesskey="c" (click)="goToCheckCalculator()">Go to <u>C</u>heck Calculator</button>
+  </div>
+
+  <form [formGroup]="employeesForm">
+    <mat-tab-group>
+      <mat-tab label="List All Employees">
+        <appc-list-employees></appc-list-employees>
+      </mat-tab>
+
+      <mat-tab label="Find and Edit Employees">
+        <appc-edit-employees [editFormGroup]="employeesForm.controls['editParameters']"></appc-edit-employees>
+      </mat-tab>
+    
+      <mat-tab label="Add Employee">
+        <appc-add-employees [addFormGroup]="employeesForm.controls['addParameters']"></appc-add-employees>
+      </mat-tab>
+    </mat-tab-group>
+  </form>
+</div>

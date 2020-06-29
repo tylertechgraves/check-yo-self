@@ -1,0 +1,28 @@
+<div fxLayout="column" fxLayoutAlign="center center" style="text-align: center; padding-top:10px; padding-bottom:10px;">
+  <div>
+    <button mat-raised-button color="primary" accesskey="e" (click)="getEmployees()">Get <u>E</u>mployees</button>
+  </div>
+</div>
+
+<div>
+  <mat-card *ngFor="let employee of employeesList; let i = index" (click)="openEditDialog(employee, i)" matTooltip="Click to edit the employee." style="cursor: pointer;">
+    <mat-card-content fxLayout="column" fxLayoutAlign="center center">
+      <div fxLayout="column" fxLayoutAlign="start center">
+        <div class="employeeField">
+          {{ employee.employeeId }}
+        </div>
+        <div class="employeeField">
+          <h2>
+            {{ employee.lastName }}, {{ employee.firstName }}
+          </h2>
+        </div>
+        <div class="employeeField">
+          {{ employee.salary | currency }}
+        </div>
+        <div class="employeeField">
+          1st paycheck on {{ employee.firstPaycheckDate | date:'shortDate' }}
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
