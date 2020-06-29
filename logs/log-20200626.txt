@@ -1,0 +1,254 @@
+2020-06-26 16:51:02.412 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Hosting starting
+2020-06-26 16:51:02.798 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] Starting @angular/cli on port 53366...
+2020-06-26 16:51:03.025 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] User profile is available. Using '/Users/markgraves/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2020-06-26 16:51:03.030 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-54e5487c-107c-4cb2-93ab-dbbba18a468a.xml'.
+2020-06-26 16:51:03.053 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-d8e2e796-9cf3-4f85-a5ac-a2d9bd398708.xml'.
+2020-06-26 16:51:03.054 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-88e8c21a-4ce1-4788-b4c6-823a6796a3da.xml'.
+2020-06-26 16:51:03.054 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-5fd1835c-8d59-463a-b348-9e0e933302bf.xml'.
+2020-06-26 16:51:03.055 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-27386715-5ed7-488f-9280-87c06cee6efc.xml'.
+2020-06-26 16:51:03.065 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {54e5487c-107c-4cb2-93ab-dbbba18a468a}.
+2020-06-26 16:51:03.070 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {d8e2e796-9cf3-4f85-a5ac-a2d9bd398708}.
+2020-06-26 16:51:03.070 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {88e8c21a-4ce1-4788-b4c6-823a6796a3da}.
+2020-06-26 16:51:03.071 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {5fd1835c-8d59-463a-b348-9e0e933302bf}.
+2020-06-26 16:51:03.071 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {27386715-5ed7-488f-9280-87c06cee6efc}.
+2020-06-26 16:51:03.079 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Considering key {5fd1835c-8d59-463a-b348-9e0e933302bf} with expiration date 2020-07-02 19:02:59Z as default key.
+2020-06-26 16:51:03.087 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2020-06-26 16:51:03.099 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2020-06-26 16:51:03.100 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2020-06-26 16:51:03.106 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Using key {5fd1835c-8d59-463a-b348-9e0e933302bf} as the default key.
+2020-06-26 16:51:03.107 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Key ring with default key {5fd1835c-8d59-463a-b348-9e0e933302bf} was loaded during application startup.
+2020-06-26 16:51:03.109 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Failed to locate the development https certificate at 'null'.
+2020-06-26 16:51:03.119 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Hosting started
+2020-06-26 16:51:03.119 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Loaded hosting startup assembly check-yo-self
+2020-06-26 16:51:03.338 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9T9" accepted.
+2020-06-26 16:51:03.340 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9T9" started.
+2020-06-26 16:51:03.342 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TA" accepted.
+2020-06-26 16:51:03.342 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TA" started.
+2020-06-26 16:51:03.386 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9T9:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 16:51:03.392 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9T9:00000001] Wildcard detected, all requests with hosts will be allowed.
+2020-06-26 16:51:03.392 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9T9:00000001] All hosts are allowed.
+2020-06-26 16:51:03.394 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9T9:00000001] The request path / does not match a supported file type
+2020-06-26 16:51:03.423 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9T9:00000001] No candidates found for the request path '/'
+2020-06-26 16:51:03.423 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9T9:00000001] Request did not match any endpoints
+2020-06-26 16:51:14.251 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] > check-yo-self@0.0.0 start /Users/markgraves/Documents/Projects/TEG/staging-area/check-yo-self/ClientApp
+> ng serve "--port" "53366"
+
+
+
+2020-06-26 16:51:14.252 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] chunk {main} main.js, main.js.map (main) 60.7 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 141 kB [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.15 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 13 kB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 2.64 MB [initial] [rendered]
+Date: 2020-06-26T21:51:14.249Z - Hash: de74c570ae704002d0de - Time: 5999ms
+
+2020-06-26 16:51:35.305 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TA" received FIN.
+2020-06-26 16:51:35.344 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TA" sending FIN because: "The client closed the connection."
+2020-06-26 16:51:35.347 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TA" disconnecting.
+2020-06-26 16:51:35.349 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TA" stopped.
+2020-06-26 16:52:55.961 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9T9" received FIN.
+2020-06-26 16:52:55.968 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TB" accepted.
+2020-06-26 16:52:55.968 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9T9" sending FIN because: "The client closed the connection."
+2020-06-26 16:52:55.969 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TB" started.
+2020-06-26 16:52:55.969 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9T9" disconnecting.
+2020-06-26 16:52:56.001 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TC" accepted.
+2020-06-26 16:52:56.001 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TC" started.
+2020-06-26 16:52:56.002 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9TB:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 16:52:56.002 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9TB:00000001] All hosts are allowed.
+2020-06-26 16:52:56.002 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9TB:00000001] The request path / does not match a supported file type
+2020-06-26 16:52:56.002 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9TB:00000001] No candidates found for the request path '/'
+2020-06-26 16:52:56.002 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9TB:00000001] Request did not match any endpoints
+2020-06-26 16:53:03.440 -05:00 [Error] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9T9:00000001] An unhandled exception has occurred while executing the request.
+System.TimeoutException: The Angular CLI process did not start listening for requests within the timeout period of 0 seconds. Check the log output for error information.
+   at Microsoft.AspNetCore.SpaServices.Extensions.Util.TaskTimeoutExtensions.WithTimeout[T](Task`1 task, TimeSpan timeoutDelay, String message)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-06-26 16:53:03.537 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9T9:00000001] Request finished in 120152.9376ms 500 text/html; charset=utf-8
+2020-06-26 16:53:03.538 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9T9" stopped.
+2020-06-26 16:53:35.794 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TC" received FIN.
+2020-06-26 16:53:35.823 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TC" sending FIN because: "The client closed the connection."
+2020-06-26 16:53:35.824 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TC" disconnecting.
+2020-06-26 16:53:35.828 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3C2PJ9TC" stopped.
+2020-06-26 16:54:56.009 -05:00 [Error] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9TB:00000001] An unhandled exception has occurred while executing the request.
+System.TimeoutException: The Angular CLI process did not start listening for requests within the timeout period of 0 seconds. Check the log output for error information.
+   at Microsoft.AspNetCore.SpaServices.Extensions.Util.TaskTimeoutExtensions.WithTimeout[T](Task`1 task, TimeSpan timeoutDelay, String message)
+   at Microsoft.AspNetCore.SpaServices.Extensions.Proxy.SpaProxy.PerformProxyRequest(HttpContext context, HttpClient httpClient, Task`1 baseUriTask, CancellationToken applicationStoppingToken, Boolean proxy404s)
+   at Microsoft.AspNetCore.Builder.SpaProxyingExtensions.<>c__DisplayClass2_0.<<UseProxyToSpaDevelopmentServer>b__0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2020-06-26 16:54:56.049 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9TB:00000001] Connection id "0HM0Q3C2PJ9TB" completed keep alive response.
+2020-06-26 16:54:56.049 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3C2PJ9TB:00000001] Request finished in 120046.4267ms 500 text/html; charset=utf-8
+2020-06-26 16:56:18.765 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Hosting starting
+2020-06-26 16:56:22.416 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] Starting @angular/cli on port 54300...
+2020-06-26 16:57:02.717 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Hosting starting
+2020-06-26 16:58:02.539 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] Starting @angular/cli on port 54494...
+2020-06-26 16:58:02.800 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] User profile is available. Using '/Users/markgraves/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2020-06-26 16:58:02.804 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-54e5487c-107c-4cb2-93ab-dbbba18a468a.xml'.
+2020-06-26 16:58:02.827 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-d8e2e796-9cf3-4f85-a5ac-a2d9bd398708.xml'.
+2020-06-26 16:58:02.827 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-88e8c21a-4ce1-4788-b4c6-823a6796a3da.xml'.
+2020-06-26 16:58:02.828 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-5fd1835c-8d59-463a-b348-9e0e933302bf.xml'.
+2020-06-26 16:58:02.828 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-27386715-5ed7-488f-9280-87c06cee6efc.xml'.
+2020-06-26 16:58:02.837 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {54e5487c-107c-4cb2-93ab-dbbba18a468a}.
+2020-06-26 16:58:02.844 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {d8e2e796-9cf3-4f85-a5ac-a2d9bd398708}.
+2020-06-26 16:58:02.844 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {88e8c21a-4ce1-4788-b4c6-823a6796a3da}.
+2020-06-26 16:58:02.844 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {5fd1835c-8d59-463a-b348-9e0e933302bf}.
+2020-06-26 16:58:02.845 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {27386715-5ed7-488f-9280-87c06cee6efc}.
+2020-06-26 16:58:02.853 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Considering key {5fd1835c-8d59-463a-b348-9e0e933302bf} with expiration date 2020-07-02 19:02:59Z as default key.
+2020-06-26 16:58:02.866 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2020-06-26 16:58:02.880 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2020-06-26 16:58:02.892 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2020-06-26 16:58:02.898 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Using key {5fd1835c-8d59-463a-b348-9e0e933302bf} as the default key.
+2020-06-26 16:58:02.898 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Key ring with default key {5fd1835c-8d59-463a-b348-9e0e933302bf} was loaded during application startup.
+2020-06-26 16:58:02.905 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Failed to locate the development https certificate at 'null'.
+2020-06-26 16:58:02.917 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Hosting started
+2020-06-26 16:58:02.917 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Loaded hosting startup assembly check-yo-self
+2020-06-26 16:58:03.133 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32OV" accepted.
+2020-06-26 16:58:03.134 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32OV" started.
+2020-06-26 16:58:03.134 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32P0" accepted.
+2020-06-26 16:58:03.134 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32P0" started.
+2020-06-26 16:58:03.181 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32OV:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 16:58:03.188 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32OV:00000001] Wildcard detected, all requests with hosts will be allowed.
+2020-06-26 16:58:03.188 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32OV:00000001] All hosts are allowed.
+2020-06-26 16:58:03.191 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32OV:00000001] The request path / does not match a supported file type
+2020-06-26 16:58:03.222 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32OV:00000001] No candidates found for the request path '/'
+2020-06-26 16:58:03.222 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32OV:00000001] Request did not match any endpoints
+2020-06-26 16:58:14.212 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] > check-yo-self@0.0.0 start /Users/markgraves/Documents/Projects/TEG/staging-area/check-yo-self/ClientApp
+> ng serve "--port" "54494"
+
+
+
+2020-06-26 16:58:14.213 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] chunk {main} main.js, main.js.map (main) 60.7 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 141 kB [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.15 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 13 kB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 2.64 MB [initial] [rendered]
+Date: 2020-06-26T21:58:14.210Z - Hash: de74c570ae704002d0de - Time: 6276ms
+
+2020-06-26 16:58:35.565 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32P0" received FIN.
+2020-06-26 16:58:35.598 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32P0" disconnecting.
+2020-06-26 16:58:35.602 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32P0" sending FIN because: "The client closed the connection."
+2020-06-26 16:58:35.609 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32P0" stopped.
+2020-06-26 16:58:39.281 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32OV" received FIN.
+2020-06-26 16:58:39.282 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32OV" sending FIN because: "The client closed the connection."
+2020-06-26 16:58:39.283 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32OV" disconnecting.
+2020-06-26 16:58:39.336 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32P1" accepted.
+2020-06-26 16:58:39.336 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32P1" started.
+2020-06-26 16:58:39.337 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32P2" accepted.
+2020-06-26 16:58:39.338 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3FVT32P2" started.
+2020-06-26 16:58:39.362 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32P1:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 16:58:39.363 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32P1:00000001] All hosts are allowed.
+2020-06-26 16:58:39.363 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32P1:00000001] The request path / does not match a supported file type
+2020-06-26 16:58:39.363 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32P1:00000001] No candidates found for the request path '/'
+2020-06-26 16:58:39.363 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3FVT32P1:00000001] Request did not match any endpoints
+2020-06-26 16:59:45.889 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Hosting starting
+2020-06-26 16:59:46.272 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] Starting @angular/cli on port 54736...
+2020-06-26 16:59:46.449 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] User profile is available. Using '/Users/markgraves/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2020-06-26 16:59:46.455 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-54e5487c-107c-4cb2-93ab-dbbba18a468a.xml'.
+2020-06-26 16:59:46.478 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-d8e2e796-9cf3-4f85-a5ac-a2d9bd398708.xml'.
+2020-06-26 16:59:46.479 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-88e8c21a-4ce1-4788-b4c6-823a6796a3da.xml'.
+2020-06-26 16:59:46.479 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-5fd1835c-8d59-463a-b348-9e0e933302bf.xml'.
+2020-06-26 16:59:46.480 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Reading data from file '/Users/markgraves/.aspnet/DataProtection-Keys/key-27386715-5ed7-488f-9280-87c06cee6efc.xml'.
+2020-06-26 16:59:46.486 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {54e5487c-107c-4cb2-93ab-dbbba18a468a}.
+2020-06-26 16:59:46.490 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {d8e2e796-9cf3-4f85-a5ac-a2d9bd398708}.
+2020-06-26 16:59:46.491 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {88e8c21a-4ce1-4788-b4c6-823a6796a3da}.
+2020-06-26 16:59:46.491 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {5fd1835c-8d59-463a-b348-9e0e933302bf}.
+2020-06-26 16:59:46.491 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Found key {27386715-5ed7-488f-9280-87c06cee6efc}.
+2020-06-26 16:59:46.500 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Considering key {5fd1835c-8d59-463a-b348-9e0e933302bf} with expiration date 2020-07-02 19:02:59Z as default key.
+2020-06-26 16:59:46.511 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Forwarded activator type request from Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Version=3.1.3.0, Culture=neutral, PublicKeyToken=adb9793829ddae60 to Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorDescriptorDeserializer, Microsoft.AspNetCore.DataProtection, Culture=neutral, PublicKeyToken=adb9793829ddae60
+2020-06-26 16:59:46.522 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Using managed symmetric algorithm 'System.Security.Cryptography.Aes'.
+2020-06-26 16:59:46.522 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Using managed keyed hash algorithm 'System.Security.Cryptography.HMACSHA256'.
+2020-06-26 16:59:46.527 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Using key {5fd1835c-8d59-463a-b348-9e0e933302bf} as the default key.
+2020-06-26 16:59:46.529 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Key ring with default key {5fd1835c-8d59-463a-b348-9e0e933302bf} was loaded during application startup.
+2020-06-26 16:59:46.532 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Failed to locate the development https certificate at 'null'.
+2020-06-26 16:59:46.542 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Hosting started
+2020-06-26 16:59:46.543 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Loaded hosting startup assembly check-yo-self
+2020-06-26 16:59:46.747 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UN9" accepted.
+2020-06-26 16:59:46.752 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UN9" started.
+2020-06-26 16:59:46.767 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNA" accepted.
+2020-06-26 16:59:46.771 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNA" started.
+2020-06-26 16:59:46.836 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UN9:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 16:59:46.846 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UN9:00000001] Wildcard detected, all requests with hosts will be allowed.
+2020-06-26 16:59:46.846 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UN9:00000001] All hosts are allowed.
+2020-06-26 16:59:46.849 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UN9:00000001] The request path / does not match a supported file type
+2020-06-26 16:59:46.883 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UN9:00000001] No candidates found for the request path '/'
+2020-06-26 16:59:46.883 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UN9:00000001] Request did not match any endpoints
+2020-06-26 16:59:58.019 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] > check-yo-self@0.0.0 start /Users/markgraves/Documents/Projects/TEG/staging-area/check-yo-self/ClientApp
+> ng serve "--port" "54736"
+
+
+
+2020-06-26 16:59:58.020 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [] chunk {main} main.js, main.js.map (main) 60.7 kB [initial] [rendered]
+chunk {polyfills} polyfills.js, polyfills.js.map (polyfills) 141 kB [initial] [rendered]
+chunk {runtime} runtime.js, runtime.js.map (runtime) 6.15 kB [entry] [rendered]
+chunk {styles} styles.js, styles.js.map (styles) 13 kB [initial] [rendered]
+chunk {vendor} vendor.js, vendor.js.map (vendor) 2.64 MB [initial] [rendered]
+Date: 2020-06-26T21:59:58.017Z - Hash: de74c570ae704002d0de - Time: 6402ms
+
+2020-06-26 16:59:58.957 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNA" received FIN.
+2020-06-26 16:59:58.963 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNA" sending FIN because: "The client closed the connection."
+2020-06-26 16:59:58.966 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNA" disconnecting.
+2020-06-26 16:59:58.968 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNA" stopped.
+2020-06-26 17:00:51.765 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UN9" received FIN.
+2020-06-26 17:00:51.768 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNB" accepted.
+2020-06-26 17:00:51.773 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNB" started.
+2020-06-26 17:00:51.772 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UN9" sending FIN because: "The client closed the connection."
+2020-06-26 17:00:51.773 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UN9" disconnecting.
+2020-06-26 17:00:51.778 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNC" accepted.
+2020-06-26 17:00:51.778 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNC" started.
+2020-06-26 17:00:51.779 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNB:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 17:00:51.779 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNB:00000001] All hosts are allowed.
+2020-06-26 17:00:51.779 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNB:00000001] The request path / does not match a supported file type
+2020-06-26 17:00:51.779 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNB:00000001] No candidates found for the request path '/'
+2020-06-26 17:00:51.779 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNB:00000001] Request did not match any endpoints
+2020-06-26 17:00:54.716 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNB" received FIN.
+2020-06-26 17:00:54.717 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNB" sending FIN because: "The client closed the connection."
+2020-06-26 17:00:54.718 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNB" disconnecting.
+2020-06-26 17:00:54.726 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UND" accepted.
+2020-06-26 17:00:54.728 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UND" started.
+2020-06-26 17:00:54.728 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNC:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 17:00:54.731 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNC:00000001] All hosts are allowed.
+2020-06-26 17:00:54.732 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNC:00000001] The request path / does not match a supported file type
+2020-06-26 17:00:54.732 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNC:00000001] No candidates found for the request path '/'
+2020-06-26 17:00:54.732 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNC:00000001] Request did not match any endpoints
+2020-06-26 17:00:55.667 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNC" received FIN.
+2020-06-26 17:00:55.668 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNC" sending FIN because: "The client closed the connection."
+2020-06-26 17:00:55.669 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNC" disconnecting.
+2020-06-26 17:00:55.672 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNE" accepted.
+2020-06-26 17:00:55.673 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNE" started.
+2020-06-26 17:00:55.674 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UND:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 17:00:55.675 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UND:00000001] All hosts are allowed.
+2020-06-26 17:00:55.675 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UND:00000001] The request path / does not match a supported file type
+2020-06-26 17:00:55.675 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UND:00000001] No candidates found for the request path '/'
+2020-06-26 17:00:55.675 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UND:00000001] Request did not match any endpoints
+2020-06-26 17:00:56.076 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UND" received FIN.
+2020-06-26 17:00:56.076 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UND" sending FIN because: "The client closed the connection."
+2020-06-26 17:00:56.076 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UND" disconnecting.
+2020-06-26 17:00:56.081 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNF" accepted.
+2020-06-26 17:00:56.082 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNF" started.
+2020-06-26 17:00:56.082 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNE:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 17:00:56.083 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNE:00000001] All hosts are allowed.
+2020-06-26 17:00:56.083 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNE:00000001] The request path / does not match a supported file type
+2020-06-26 17:00:56.084 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNE:00000001] No candidates found for the request path '/'
+2020-06-26 17:00:56.084 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNE:00000001] Request did not match any endpoints
+2020-06-26 17:00:56.410 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNE" received FIN.
+2020-06-26 17:00:56.410 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNE" sending FIN because: "The client closed the connection."
+2020-06-26 17:00:56.411 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNE" disconnecting.
+2020-06-26 17:00:56.413 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNG" accepted.
+2020-06-26 17:00:56.414 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNG" started.
+2020-06-26 17:00:56.416 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNF:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 17:00:56.416 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNF:00000001] All hosts are allowed.
+2020-06-26 17:00:56.416 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNF:00000001] The request path / does not match a supported file type
+2020-06-26 17:00:56.416 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNF:00000001] No candidates found for the request path '/'
+2020-06-26 17:00:56.416 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNF:00000001] Request did not match any endpoints
+2020-06-26 17:00:56.715 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNF" received FIN.
+2020-06-26 17:00:56.716 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNF" sending FIN because: "The client closed the connection."
+2020-06-26 17:00:56.716 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNF" disconnecting.
+2020-06-26 17:00:56.720 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNH" accepted.
+2020-06-26 17:00:56.720 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [] Connection id "0HM0Q3GUP6UNH" started.
+2020-06-26 17:00:56.721 -05:00 [Information] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNG:00000001] Request starting HTTP/1.1 GET http://localhost:5000/  
+2020-06-26 17:00:56.721 -05:00 [Verbose] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNG:00000001] All hosts are allowed.
+2020-06-26 17:00:56.722 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNG:00000001] The request path / does not match a supported file type
+2020-06-26 17:00:56.722 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNG:00000001] No candidates found for the request path '/'
+2020-06-26 17:00:56.722 -05:00 [Debug] [Mark-Gravess-MacBook-Pro] [0HM0Q3GUP6UNG:00000001] Request did not match any endpoints

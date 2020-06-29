@@ -1,6 +1,6 @@
 # Check-Yo-Self
 
-This Angular 5, .NET Core application allows a user to list all the dates
+This Angular 10, .NET Core application allows a user to list all the dates
 on which they will receive a paycheck in a specified number of years.
 It also allows a user to query for the months in which a specified
 number of checks will be received over the course of the next year.
