@@ -1,12 +1,12 @@
-@import '~@angular/material/_theming';
-@include mat-core();
+// @import '~@angular/material/_theming';
+// @include mat-core();
 
-$app-primary: mat-palette($mat-indigo);
-$app-accent:  mat-palette($mat-amber, A200, A100, A400);
-$app-theme:   mat-light-theme($app-primary, $app-accent);
+// $app-primary: mat-palette($mat-indigo);
+// $app-accent:  mat-palette($mat-amber, A200, A100, A400);
+// $app-theme:   mat-light-theme($app-primary, $app-accent);
 
-// Include the default theme styles.
-@include angular-material-theme($app-theme);
+// // Include the default theme styles.
+// @include angular-material-theme($app-theme);
 
 html {
     height: 100vh;
