@@ -4,6 +4,7 @@ import { MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material/sn
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Employee } from '../../core/models/employee';
 import { EmployeesService } from '../employees.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'appc-edit-employee-dialog',
@@ -35,10 +36,23 @@ export class EditEmployeeDialogComponent implements OnInit {
     });
   }
 
-  setUpFormModelSubscription() {
-    this.editFormGroup.valueChanges.subscribe(formModel => {
+  // setUpFormModelSubscription() {
+  //   this.editFormGroup.valueChanges.subscribe(formModel => {
+  //     // Retrieve the form model
+  //     this.employee = this.editFormGroup.value;
+  //   });
+  // }
+
+  setUpFormModelSubscription(): void {
+    this.editFormGroup.valueChanges.pipe(
+      map((formData) => {
+        const {salary} = formData;
+        return {...formData, salary: parseFloat(salary)} as Employee;
+      })
+    )
+    .subscribe(employee => {
       // Retrieve the form model
-      this.employee = this.editFormGroup.value;
+      this.employee = employee;
     });
   }
 
