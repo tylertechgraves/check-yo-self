@@ -27,3 +27,12 @@ Once the check-yo-self Docker container is listening on port 80,
 you can navigate to the app in a browser by going to the following URL:
 
 [http://localhost:5000](http://localhost:5000)
+
+## Debugging this Project
+
+To debug this project, you must first start the Angular server. This is easy!
+Just open a shell in your VSCode terminal, change your directory to the ClientApp
+folder.  Then run `npm start`.
+
+Once the Angular server is running, simply start the VSCode debugger, either by
+going to the debug tab and clicking the run button or by hitting the F5 key.
