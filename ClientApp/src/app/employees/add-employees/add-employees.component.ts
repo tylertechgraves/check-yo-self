@@ -3,7 +3,6 @@ import { FormGroup, NgForm } from '@angular/forms';
 import { Employee } from '../../core/models/employee';
 import { EmployeesService } from '../employees.service';
 import { MatSnackBarHorizontalPosition, MatSnackBar } from '@angular/material/snack-bar';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { map, tap } from 'rxjs/operators';
 
 @Component({
