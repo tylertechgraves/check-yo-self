@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { FormGroup, NgForm } from '@angular/forms';
+import { UntypedFormGroup, NgForm } from '@angular/forms';
 import { EmployeesService } from '../employees.service';
 import { Employee } from '../../core/models/employee';
 import { MatDialog } from '@angular/material/dialog';
@@ -11,7 +11,7 @@ import { EditEmployeeDialogComponent } from '../edit-employee-dialog/edit-employ
   styleUrls: ['./edit-employees.component.scss']
 })
 export class EditEmployeesComponent implements OnInit {
-  @Input() editFormGroup: FormGroup;
+  @Input() editFormGroup: UntypedFormGroup;
 
   public queryOptions: string[] = ['ID', 'Full Name', 'Last Name'];
   public queryOption: string;
