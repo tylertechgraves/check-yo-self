@@ -1,9 +1,8 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
-import { FormGroup, NgForm } from '@angular/forms';
+import { UntypedFormGroup, NgForm } from '@angular/forms';
 import { Employee } from '../../core/models/employee';
 import { EmployeesService } from '../employees.service';
 import { MatSnackBarHorizontalPosition, MatSnackBar } from '@angular/material/snack-bar';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { map, tap } from 'rxjs/operators';
 
 @Component({
@@ -12,7 +11,7 @@ import { map, tap } from 'rxjs/operators';
   styleUrls: ['./add-employees.component.scss']
 })
 export class AddEmployeesComponent implements OnInit {
-  @Input() addFormGroup: FormGroup;
+  @Input() addFormGroup: UntypedFormGroup;
   @ViewChild('formDirective') private formDirective: NgForm;
 
   private horizontalPosition: MatSnackBarHorizontalPosition = 'center';

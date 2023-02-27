@@ -1,36 +1,35 @@
-using Newtonsoft.Json;
 using check_yo_self.Server.Helpers;
+using Newtonsoft.Json;
 
-namespace check_yo_self.Server.Entities.Config
+namespace check_yo_self.Server.Entities.Config;
+
+public class Elasticsearch
 {
-    public class Elasticsearch
+    private string _uri;
+    public string Uri
     {
-        private string _uri;
-        public string Uri
-        {
-            get { return UrlAdjuster.ReplaceHostAndSetTrailingSlash(this._uri); }
-            set { this._uri = value; }
-        }
-
-        [JsonProperty("username")]
-        public string Username { get; set; }
-
-        [JsonProperty("password")]
-        public string Password { get; set; }
-
-        [JsonProperty("indexName")]
-        public string IndexName { get; set; }
-
-        [JsonProperty("maxBulkInsertCount")]
-        public int MaxBulkInsertCount { get; set; }
-
-        [JsonProperty("numberOfReplicas")]
-        public int NumberOfReplicas { get; set; }
-
-        [JsonProperty("numberOfShards")]
-        public int NumberOfShards { get; set; }
-
-        [JsonProperty("useAuthentication")]
-        public bool UseAuthentication { get; set; }
+        get => UrlAdjuster.ReplaceHostAndSetTrailingSlash(_uri);
+        set => _uri = value;
     }
+
+    [JsonProperty("username")]
+    public string Username { get; set; }
+
+    [JsonProperty("password")]
+    public string Password { get; set; }
+
+    [JsonProperty("indexName")]
+    public string IndexName { get; set; }
+
+    [JsonProperty("maxBulkInsertCount")]
+    public int MaxBulkInsertCount { get; set; }
+
+    [JsonProperty("numberOfReplicas")]
+    public int NumberOfReplicas { get; set; }
+
+    [JsonProperty("numberOfShards")]
+    public int NumberOfShards { get; set; }
+
+    [JsonProperty("useAuthentication")]
+    public bool UseAuthentication { get; set; }
 }

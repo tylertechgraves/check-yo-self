@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { PaycheckCalculatorService } from '../paycheck-calculator.service';
 import { Month } from '../models/parameters.model';
 
@@ -9,7 +9,7 @@ import { Month } from '../models/parameters.model';
   styleUrls: ['./show-months.component.scss']
 })
 export class ShowMonthsComponent implements OnInit {
-  @Input() monthsFormGroup: FormGroup;
+  @Input() monthsFormGroup: UntypedFormGroup;
 
   public returnedMonths: Month[];
 

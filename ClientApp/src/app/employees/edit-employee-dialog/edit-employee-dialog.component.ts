@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar, MatSnackBarHorizontalPosition } from '@angular/material/snack-bar';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Employee } from '../../core/models/employee';
@@ -11,13 +11,13 @@ import { map } from 'rxjs/operators';
   templateUrl: 'edit-employee-dialog.component.html',
 })
 export class EditEmployeeDialogComponent implements OnInit {
-  public editFormGroup: FormGroup;
+  public editFormGroup: UntypedFormGroup;
   private horizontalPosition: MatSnackBarHorizontalPosition = 'center';
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public employee: Employee,
     public dialogRef: MatDialogRef<EditEmployeeDialogComponent>,
-    private _formBuilder: FormBuilder,
+    private _formBuilder: UntypedFormBuilder,
     private employeesService: EmployeesService,
     private snackBar: MatSnackBar) { }
 

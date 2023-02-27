@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { Parameters } from '../models/parameters.model';
 import { ConfigService } from '../../core/services/config.service';
 import { Router } from '@angular/router';
@@ -10,13 +10,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./paycheck-calculator.component.scss']
 })
 export class PaycheckCalculatorComponent implements OnInit {
-  public checkCalculatorForm: FormGroup;
+  public checkCalculatorForm: UntypedFormGroup;
   public parameters: Parameters;
   public employeesButtonVisible: boolean;
 
   constructor(
     private _router: Router,
-    private _formBuilder: FormBuilder
+    private _formBuilder: UntypedFormBuilder
     ) { }
 
   ngOnInit() {

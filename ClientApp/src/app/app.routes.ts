@@ -9,4 +9,4 @@ const routes: Routes = [
 /**
  * Routing for application root.
  */
-export const routing = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules });
+export const routing = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' });

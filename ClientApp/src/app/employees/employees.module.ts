@@ -23,27 +23,26 @@ import { EditEmployeesComponent } from './edit-employees/edit-employees.componen
 import { AddEmployeesComponent } from './add-employees/add-employees.component';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    employeesRouting,
-    MatFormFieldModule,
-    MatButtonModule,
-    MatInputModule,
-    MatDividerModule,
-    MatTabsModule,
-    MatDatepickerModule,
-    MatNativeDateModule,
-    FlexLayoutModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatCardModule,
-    MatSnackBarModule,
-    MatRadioModule,
-    MatDialogModule,
-    MatTooltipModule
-  ],
-  declarations: [EmployeesComponent, ListEmployeesComponent, EditEmployeesComponent, AddEmployeesComponent, EditEmployeeDialogComponent],
-  entryComponents: [EditEmployeeDialogComponent],
-  providers: [EmployeesService]
+    imports: [
+        CommonModule,
+        employeesRouting,
+        MatFormFieldModule,
+        MatButtonModule,
+        MatInputModule,
+        MatDividerModule,
+        MatTabsModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
+        FlexLayoutModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatCardModule,
+        MatSnackBarModule,
+        MatRadioModule,
+        MatDialogModule,
+        MatTooltipModule
+    ],
+    declarations: [EmployeesComponent, ListEmployeesComponent, EditEmployeesComponent, AddEmployeesComponent, EditEmployeeDialogComponent],
+    providers: [EmployeesService]
 })
 export class EmployeesModule { }

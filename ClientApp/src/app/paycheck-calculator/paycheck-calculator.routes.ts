@@ -5,4 +5,4 @@ const routes: Routes = [
     { path: 'paycheck-calculator', component: PaycheckCalculatorComponent }
 ];
 
-export const routing = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules });
+export const routing = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' });

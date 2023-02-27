@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 import { PaycheckCalculatorService } from '../paycheck-calculator.service';
 import { Paycheck } from '../models/parameters.model';
 
@@ -9,7 +9,7 @@ import { Paycheck } from '../models/parameters.model';
   styleUrls: ['./show-paycheck-dates.component.scss']
 })
 export class ShowPaycheckDatesComponent implements OnInit {
-  @Input() datesFormGroup: FormGroup;
+  @Input() datesFormGroup: UntypedFormGroup;
 
   public returnedChecks: Paycheck[];
 
