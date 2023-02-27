@@ -5,4 +5,4 @@ const routes: Routes = [
     { path: 'employees', component: EmployeesComponent }
 ];
 
-export const employeesRouting = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules });
+export const employeesRouting = RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, relativeLinkResolution: 'legacy' });
